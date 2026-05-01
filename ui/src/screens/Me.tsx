@@ -1,7 +1,12 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa"
+import { FaGithub, FaLinkedin, FaNodeJs, FaReact } from "react-icons/fa"
 import Navbar from "../components/Navbar"
 import { FaXTwitter } from "react-icons/fa6"
-import { Link } from "react-router-dom"
+import Skill from "../components/Skill"
+import { RiNextjsFill, RiTailwindCssLine } from "react-icons/ri"
+import { SiExpress, SiHono, SiMongodb, SiPrisma } from "react-icons/si"
+import { BsJavascript, BsTypescript } from "react-icons/bs"
+import { BiLogoPostgresql } from "react-icons/bi"
+import { GiSatelliteCommunication } from "react-icons/gi"
 
 function Me() {
     return (
@@ -98,6 +103,79 @@ function Me() {
                                    2024 - 2028
                                </div>
                      </a>
+
+                  </div>
+
+                  {/* Skills and tools */}
+
+                  <div className="px-8 py-18 flex flex-col gap-3">
+
+                    <div>
+                        <h1 className="text-2xl font-semibold font-main tracking-wide text-gray-100"> Skills & Tools I Use </h1>
+                    </div>
+
+                    <div className="flex gap-5 flex-wrap ">
+                    <Skill icon={<FaReact />} name="React" />
+                     <Skill icon={<RiNextjsFill />} name="NextJs" />
+
+                    <Skill icon={<FaNodeJs />} name="NodeJs" />
+
+                     <Skill icon={<SiExpress />} name="ExpressJs" />
+
+                      <Skill icon={<BsJavascript />} name="JavaScript" />
+
+                       <Skill icon={<BsTypescript />} name="TypeScipt" />
+
+                       
+                       <Skill icon={<SiMongodb />} name="MongoDB" />
+
+                       <Skill icon={<BiLogoPostgresql />} name="PostgreSQL" />
+
+
+
+                       <Skill icon={<SiPrisma />} name="Prisma" />
+
+                       <Skill icon={<RiTailwindCssLine />} name="TailwindCss" />
+
+                       <Skill icon={<SiHono />} name="Hono" />
+
+
+                       <Skill icon={<GiSatelliteCommunication />} name="Real-time-communication" />
+
+                         <Skill icon={<SiHono />} name="Docker" />
+
+
+
+                                        <Skill icon={<SiHono />} name="AWS" />
+
+
+                   <Skill icon={<SiHono />} name="Jenkins" />
+
+
+                   <Skill icon={<SiHono />} name="Git & Github" />
+
+                   <Skill icon={<SiHono />} name="Kubernetes" />
+
+                   <Skill icon={<SiHono />} name="Linux" />
+
+
+
+
+
+
+
+                       
+
+
+
+
+ 
+
+
+
+                    </div>
+
+                   
 
                   </div>
 
