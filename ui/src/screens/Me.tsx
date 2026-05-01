@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 import Navbar from "../components/Navbar"
 import { FaXTwitter } from "react-icons/fa6"
+import { Link } from "react-router-dom"
 
 function Me() {
     return (
@@ -50,10 +51,9 @@ function Me() {
 
 
                   {/* Work experrience */}
-
                   <div className="px-8 py-8 flex flex-col  gap-1">
 
-                    <div className="mb-5"> 
+                    <div className="mb-3"> 
                      <h1 className="text-2xl font-main tracking-wide text-gray-100 font-medium"> Work Experience </h1>    
                      </div>
 
@@ -64,7 +64,7 @@ function Me() {
                                     </div>
                                     <div className="flex flex-col">
                                         <h1 className="font-main text-2xl font-semibold"> Vindhya Telelink Limited </h1>
-                                        <p className="text-[#8b8b8b] mt-1 font-main font-normal text-[18px]"> Made Inventory Management System - Freelance   </p>
+                                        <p className="text-[#a5a5a5] mt-1 font-main font-normal text-[18px]"> Made Inventory Management System - Freelance   </p>
                                     </div>
                                </div>
 
@@ -74,6 +74,34 @@ function Me() {
                      </div>
 
                   </div>
+
+
+                  {/* Education */}
+                    <div className="px-8 py-8 flex flex-col  gap-1">
+
+                    <div className="mb-3"> 
+                     <h1 className="text-2xl font-main tracking-wide text-gray-400 font-medium"> Education </h1>    
+                     </div>
+
+                     <a href="https://knit.ac.in/en" target="_blank" className="info flex justify-between hover:border-dashed hover:border hover:rounded-xl  hover:border-gray-500 p-3 ">
+                               <div className="flex items-center gap-4">
+                                    <div className="logo">
+                                        <img className="w-15 h-15" src="/knit.png" alt="" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <h1 className="font-main text-2xl font-semibold"> Kamla Nehru Institute of Technology, Sultanpur </h1>
+                                        <p className="text-[#a5a5a5] mt-1 font-main font-normal text-[18px]"> Bachelor's of Technology in Information Technology (I.T)   </p>
+                                    </div>
+                               </div>
+
+                               <div className="timeline font-main text-gray-300 tracking-wider ">
+                                   2024 - 2028
+                               </div>
+                     </a>
+
+                  </div>
+
+
 
 
 
