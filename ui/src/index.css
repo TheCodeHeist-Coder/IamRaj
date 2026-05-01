@@ -1,2 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Rubik+Gemstones&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap');
 @import "tailwindcss";
 
+@theme {
+    --font-main: "IBM Plex Sans", sans-serif;
+    --font-spec: "Jim Nightshade", cursive;
+}

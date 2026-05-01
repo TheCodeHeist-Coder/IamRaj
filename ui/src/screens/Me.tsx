@@ -1,22 +1,63 @@
+import { FaGithub, FaLinkedin } from "react-icons/fa"
 import Navbar from "../components/Navbar"
+import { FaXTwitter } from "react-icons/fa6"
 
 function Me() {
-  return (
-    <div className="flex justify-center bg-[#0F1010] text-white min-h-screen">
+    return (
+        <div className="flex justify-center bg-[#0F1010] text-white min-h-screen">
 
-        <div className="flex flex-col min-h-screen justify-between sm:-[80%] md:w-[70%] lg:w-[50%]">
+            <div className="flex flex-col  min-h-screen  sm:-[80%] md:w-[70%] lg:w-[50%]">
 
-            <Navbar />
+                <Navbar />
+
+                {/* info section */}
+                <div className="flex items-center gap-7 px-2 py-7">
+
+                    <div className="">
+                        <img className="w-45 h-45" src="/try.jpeg" alt="" />
+                    </div>
+
+                    {/* About */}
+                    <div className="flex flex-col gap-2">
+                        <h1 className="text-8xl font-main tracking-wid font-extrabold">Raj Kumar </h1>
+                        <h4 className="text-[#8a8a8a] font-main font-medium text-[18px] tracking-wide"> Backend Developer & Devops Engg. </h4>
+
+                        <div className="links flex gap-8 mt-3 font-main text-lg">
+                            <a href="https://github.com/TheCodeHeist-Coder" target="_blank" className="flex gap-2 items-center tracking-wide hover:text-gray-400 transition-all duration-200" > <FaGithub className="w-6 h-6" /> GitHub</a>
+                            <a href="https://www.linkedin.com/in/raj-kumar-54225532a/" target="_blank" className="flex gap-2 items-center tracking-wide text-[#51a2ff] transition-all duration-200 hover:text-[#115eb6]"><FaLinkedin className="w-6 h-6" /> LinkedIn</a>
+                            <a href="https://x.com/CodeHeistCoder" target="_blank" className="flex gap-2 items-center  hover:text-gray-400 transition-all duration-200"> <FaXTwitter className="w-6 h-6" /> Twitter</a>
+                        </div>
+
+                    </div>
+                </div>
+                 
+
+                 {/* brief about me */}
+
+                  <div className="flex flex-col gap-2 px-5 py-10">
+
+                    <div>
+                        <h1 className="text-[20px] text-[#ffffff] font-main font-semibold tracking-wide"> Who Am I : </h1> 
+                     </div>
+
+                     <div className="font-main text-[#989898] font-medium ">
+                        <p className="leading-7 text-[17px]"> just a guy who codes, lifts, and tries to stay consistent. You know that feeling when code finally works the way you imagined? Yeah, I chase that feeling every single day. </p>
+                        <p className="leading-7 mt-2 text-[17px]"> I'm basically an engineer with a dangerous habit of starting side projects at 2 AM (sleep is for people without ideas, right?). I love building stuff that makes people ask "how'd you do that?" and honestly, sometimes I wonder too. Hand me a problem and watch my brain speedrun five different solutions before you finish explaining it. </p>
+                         <p className="text-center text-gray-300 text-5xl mt-5 font-bold font-spec tracking-wider"> {"< Backend & Devops />"} </p>
+                     </div>
+
+                  </div>
+
+
+
+
+            </div>
+
 
 
 
         </div>
-
-      
-
-
-    </div>
-  )
+    )
 }
 
 export default Me
