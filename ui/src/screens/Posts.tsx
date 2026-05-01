@@ -1,3 +1,4 @@
+import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import PostsPage from "../components/Post"
 
@@ -9,9 +10,20 @@ function Posts() {
 
             <Navbar />
 
+            {/* Header section */}
+             <div className="py-10 px-8 flex flex-col items-center justify-center gap-4">
+            <h1 className="font-main text-5xl text-center font-extrabold tracking-wide"> Experinces Worth Sharing </h1>
+            <p className="max-w-188 text-center font-main text-lg text-[#a5a5a5] font-medium tracking-wide">Writing helps me think. These posts are less about showing off and more about documenting what I've faced during building. I know beginners and juniors where faced some problems. maybe you'll find something useful too.</p>
+        </div>
 
-            <div className="py-12  ">
+
+            <div className="py-3  ">
                 <PostsPage />
+            </div>
+
+
+            <div>
+                <Footer />
             </div>
 
         </div>

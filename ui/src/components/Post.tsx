@@ -468,11 +468,7 @@ export default function PostsPage() {
 
   return (
     <div
-      className="min-h-screen px-6 py-16"
-      style={{
-        background: "#0d0d0f",
-        fontFamily: "'Inter', -apple-system, sans-serif",
-      }}
+      className="px-6 py-8 "
     >
       <div className="max-w-2xl mx-auto">
         <AnimatePresence mode="wait">
