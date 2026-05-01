@@ -1,12 +1,16 @@
-import { FaGithub, FaLinkedin, FaNodeJs, FaReact } from "react-icons/fa"
+import { FaAws, FaDocker, FaGitAlt, FaGithub, FaJenkins, FaLinkedin, FaLinux, FaNodeJs, FaPython, FaReact } from "react-icons/fa"
 import Navbar from "../components/Navbar"
 import { FaXTwitter } from "react-icons/fa6"
 import Skill from "../components/Skill"
 import { RiNextjsFill, RiTailwindCssLine } from "react-icons/ri"
-import { SiExpress, SiHono, SiMongodb, SiPrisma } from "react-icons/si"
+import { SiExpress, SiFastapi, SiHono, SiKubernetes, SiMongodb, SiNginx, SiPrisma } from "react-icons/si"
 import { BsJavascript, BsTypescript } from "react-icons/bs"
 import { BiLogoPostgresql } from "react-icons/bi"
 import { GiSatelliteCommunication } from "react-icons/gi"
+import { DiRedis } from "react-icons/di"
+import { GrInstagram } from "react-icons/gr"
+import DateComponent from "../components/Date"
+
 
 function Me() {
     return (
@@ -36,149 +40,174 @@ function Me() {
 
                     </div>
                 </div>
-                 
 
-                 {/* brief about me */}
-                  <div className="flex flex-col gap-2 px-5 py-10">
+
+                {/* brief about me */}
+                <div className="flex flex-col gap-2 px-5 py-10">
 
                     <div>
-                        <h1 className="text-[20px] text-[#ffffff] font-main font-semibold tracking-wide"> Who Am I : </h1> 
-                     </div>
+                        <h1 className="text-[20px] text-[#ffffff] font-main font-semibold tracking-wide"> Who Am I : </h1>
+                    </div>
 
-                     <div className="font-main text-[#989898] font-medium ">
+                    <div className="font-main text-[#989898] font-medium ">
                         <p className="leading-7 text-[17px]"> just a guy who codes, lifts, and tries to stay consistent. You know that feeling when code finally works the way you imagined? Yeah, I chase that feeling every single day. </p>
                         <p className="leading-7 mt-2 text-[17px]"> I'm basically an engineer with a dangerous habit of starting side projects at 2 AM (sleep is for people without ideas, right?). I love building stuff that makes people ask "how'd you do that?" and honestly, sometimes I wonder too. Hand me a problem and watch my brain speedrun five different solutions before you finish explaining it. </p>
-                         <p className="text-center text-gray-300 text-5xl mt-5 font-bold font-spec tracking-wider"> {"< Backend & Devops />"} </p>
-                     </div>
+                        <p className="text-center text-gray-300 text-5xl mt-5 font-bold font-spec tracking-wider"> {"< Backend & Devops />"} </p>
+                    </div>
 
-                  </div>
-
-
-
-                  {/* Work experrience */}
-                  <div className="px-8 py-8 flex flex-col  gap-1">
-
-                    <div className="mb-3"> 
-                     <h1 className="text-2xl font-main tracking-wide text-gray-100 font-medium"> Work Experience </h1>    
-                     </div>
-
-                     <div className="info flex justify-between hover:border-dashed hover:border hover:rounded-xl  hover:border-gray-500 p-3 ">
-                               <div className="flex items-center gap-4">
-                                    <div className="logo">
-                                        <img className="w-12 h-12" src="/vtl.png" alt="" />
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <h1 className="font-main text-2xl font-semibold"> Vindhya Telelink Limited </h1>
-                                        <p className="text-[#a5a5a5] mt-1 font-main font-normal text-[18px]"> Made Inventory Management System - Freelance   </p>
-                                    </div>
-                               </div>
-
-                               <div className="timeline font-main text-gray-300 tracking-wider ">
-                                   Feb 2026 - April
-                               </div>
-                     </div>
-
-                  </div>
+                </div>
 
 
-                  {/* Education */}
-                    <div className="px-8 py-8 flex flex-col  gap-1">
 
-                    <div className="mb-3"> 
-                     <h1 className="text-2xl font-main tracking-wide text-gray-400 font-medium"> Education </h1>    
-                     </div>
+                {/* Work experrience */}
+                <div className="px-8 py-12 flex flex-col  gap-1">
 
-                     <a href="https://knit.ac.in/en" target="_blank" className="info flex justify-between hover:border-dashed hover:border hover:rounded-xl  hover:border-gray-500 p-3 ">
-                               <div className="flex items-center gap-4">
-                                    <div className="logo">
-                                        <img className="w-15 h-15" src="/knit.png" alt="" />
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <h1 className="font-main text-2xl font-semibold"> Kamla Nehru Institute of Technology, Sultanpur </h1>
-                                        <p className="text-[#a5a5a5] mt-1 font-main font-normal text-[18px]"> Bachelor's of Technology in Information Technology (I.T)   </p>
-                                    </div>
-                               </div>
+                    <div className="mb-3">
+                        <h1 className="text-2xl font-main tracking-wide text-gray-100 font-medium"> Work Experience </h1>
+                    </div>
 
-                               <div className="timeline font-main text-gray-300 tracking-wider ">
-                                   2024 - 2028
-                               </div>
-                     </a>
+                    <div className="info flex justify-between hover:border-dashed hover:border hover:rounded-xl  hover:border-gray-500 p-3 ">
+                        <div className="flex items-center gap-4">
+                            <div className="logo">
+                                <img className="w-12 h-12" src="/vtl.png" alt="" />
+                            </div>
+                            <div className="flex flex-col">
+                                <h1 className="font-main text-2xl font-semibold"> Vindhya Telelink Limited </h1>
+                                <p className="text-[#a5a5a5] mt-1 font-main font-normal text-[18px]"> Made Inventory Management System - Freelance   </p>
+                            </div>
+                        </div>
 
-                  </div>
+                        <div className="timeline font-main text-gray-300 tracking-wider ">
+                            Feb 2026 - April
+                        </div>
+                    </div>
 
-                  {/* Skills and tools */}
+                </div>
 
-                  <div className="px-8 py-18 flex flex-col gap-3">
+
+                {/* Education */}
+                <div className="px-8 py-8 flex flex-col  gap-1">
+
+                    <div className="mb-3">
+                        <h1 className="text-2xl font-main tracking-wide text-gray-400 font-medium"> Education </h1>
+                    </div>
+
+                    <a href="https://knit.ac.in/en" target="_blank" className="info flex justify-between hover:border-dashed hover:border hover:rounded-xl  hover:border-gray-500 p-3 ">
+                        <div className="flex items-center gap-4">
+                            <div className="logo">
+                                <img className="w-15 h-15" src="/knit.png" alt="" />
+                            </div>
+                            <div className="flex flex-col">
+                                <h1 className="font-main text-2xl font-semibold"> Kamla Nehru Institute of Technology, Sultanpur </h1>
+                                <p className="text-[#a5a5a5] mt-1 font-main font-normal text-[18px]"> Bachelor's of Technology in Information Technology (I.T)   </p>
+                            </div>
+                        </div>
+
+                        <div className="timeline font-main text-gray-300 tracking-wider ">
+                            2024 - 2028
+                        </div>
+                    </a>
+
+                </div>
+
+                {/* Skills and tools */}
+                <div className="px-8 py-18 flex flex-col gap-3">
 
                     <div>
                         <h1 className="text-2xl font-semibold font-main tracking-wide text-gray-100"> Skills & Tools I Use </h1>
                     </div>
 
                     <div className="flex gap-5 flex-wrap ">
-                    <Skill icon={<FaReact />} name="React" />
-                     <Skill icon={<RiNextjsFill />} name="NextJs" />
+                        <Skill icon={<FaReact />} name="React" />
+                        <Skill icon={<RiNextjsFill />} name="NextJs" />
 
-                    <Skill icon={<FaNodeJs />} name="NodeJs" />
+                        <Skill icon={<FaNodeJs />} name="NodeJs" />
 
-                     <Skill icon={<SiExpress />} name="ExpressJs" />
+                        <Skill icon={<SiExpress />} name="ExpressJs" />
 
-                      <Skill icon={<BsJavascript />} name="JavaScript" />
+                        <Skill icon={<BsJavascript />} name="JavaScript" />
 
-                       <Skill icon={<BsTypescript />} name="TypeScipt" />
-
-                       
-                       <Skill icon={<SiMongodb />} name="MongoDB" />
-
-                       <Skill icon={<BiLogoPostgresql />} name="PostgreSQL" />
+                        <Skill icon={<BsTypescript />} name="TypeScipt" />
 
 
+                        <Skill icon={<SiMongodb />} name="MongoDB" />
 
-                       <Skill icon={<SiPrisma />} name="Prisma" />
-
-                       <Skill icon={<RiTailwindCssLine />} name="TailwindCss" />
-
-                       <Skill icon={<SiHono />} name="Hono" />
-
-
-                       <Skill icon={<GiSatelliteCommunication />} name="Real-time-communication" />
-
-                         <Skill icon={<SiHono />} name="Docker" />
+                        <Skill icon={<BiLogoPostgresql />} name="PostgreSQL" />
 
 
 
-                                        <Skill icon={<SiHono />} name="AWS" />
+                        <Skill icon={<SiPrisma />} name="Prisma" />
+
+                        <Skill icon={<RiTailwindCssLine />} name="TailwindCss" />
+
+                        <Skill icon={<SiHono />} name="Hono" />
 
 
-                   <Skill icon={<SiHono />} name="Jenkins" />
+                        <Skill icon={<GiSatelliteCommunication />} name="Real-time-communication" />
 
+                        <Skill icon={<FaPython />} name="Python" />
 
-                   <Skill icon={<SiHono />} name="Git & Github" />
-
-                   <Skill icon={<SiHono />} name="Kubernetes" />
-
-                   <Skill icon={<SiHono />} name="Linux" />
-
-
-
-
+                        <Skill icon={<FaPython />} name="Python" />
 
 
 
-                       
+                        <Skill icon={<SiFastapi />} name="FastAPI" />
+
+                        <Skill icon={<DiRedis />} name="Redis" />
+
+                        <Skill icon={<SiNginx />} name="Nginx" />
 
 
 
+                        <Skill icon={<FaAws />} name="AWS" />
 
- 
+
+                        <Skill icon={<FaJenkins />} name="Jenkins" />
 
 
+                        <Skill icon={<FaGitAlt />} name="Git & Github" />
+
+                        <Skill icon={<SiKubernetes />} name="Kubernetes" />
+
+                        <Skill icon={<FaLinux />} name="Linux" />
 
                     </div>
 
-                   
 
-                  </div>
 
+                </div>
+
+
+
+
+                {/* bottom */}
+                 <div className="px-8 ">
+
+                    <div className="flex items-center justify-between "> 
+                        
+                        <a className="h-12 p-12" href="https://github.com/TheCodeHeist-Coder" target="_blank">  <FaGithub className="w-10 h-10" /> </a>
+
+                        <a className="h-12 p-12 " href="https://linkedin.com/in/raj-kumar-54225532a/" target="_blank">  <FaLinkedin className="w-10 h-10"/> </a>
+
+                        <a className="h-12 p-12 " href="https://x.com/CodeHeistCoder" target="_blank">  <FaXTwitter className="w-10 h-10"/> </a>
+
+                        <a className="h-12 p-12 " href="https://www.instagram.com/raaz_kumar.r/" target="_blank">  <GrInstagram className="w-10 h-10"/> </a>
+                         </div>
+                     <div className="py-15 px-12 flex items-center justify-between">
+                        
+                        <div className="flex gap-1">
+                            <h3> &copy; </h3>
+                            <h2 className="text-gray-200"> Rajkumar </h2>
+                        </div>
+
+                        <div>
+                          <DateComponent />
+                        </div>
+
+
+                        </div>    
+
+                 </div>
 
 
 
