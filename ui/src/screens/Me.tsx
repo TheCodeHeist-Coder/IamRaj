@@ -33,7 +33,6 @@ function Me() {
                  
 
                  {/* brief about me */}
-
                   <div className="flex flex-col gap-2 px-5 py-10">
 
                     <div>
@@ -44,6 +43,34 @@ function Me() {
                         <p className="leading-7 text-[17px]"> just a guy who codes, lifts, and tries to stay consistent. You know that feeling when code finally works the way you imagined? Yeah, I chase that feeling every single day. </p>
                         <p className="leading-7 mt-2 text-[17px]"> I'm basically an engineer with a dangerous habit of starting side projects at 2 AM (sleep is for people without ideas, right?). I love building stuff that makes people ask "how'd you do that?" and honestly, sometimes I wonder too. Hand me a problem and watch my brain speedrun five different solutions before you finish explaining it. </p>
                          <p className="text-center text-gray-300 text-5xl mt-5 font-bold font-spec tracking-wider"> {"< Backend & Devops />"} </p>
+                     </div>
+
+                  </div>
+
+
+
+                  {/* Work experrience */}
+
+                  <div className="px-8 py-8 flex flex-col  gap-1">
+
+                    <div className="mb-5"> 
+                     <h1 className="text-2xl font-main tracking-wide text-gray-100 font-medium"> Work Experience </h1>    
+                     </div>
+
+                     <div className="info flex justify-between hover:border-dashed hover:border hover:rounded-xl  hover:border-gray-500 p-3 ">
+                               <div className="flex items-center gap-4">
+                                    <div className="logo">
+                                        <img className="w-12 h-12" src="/vtl.png" alt="" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <h1 className="font-main text-2xl font-semibold"> Vindhya Telelink Limited </h1>
+                                        <p className="text-[#8b8b8b] mt-1 font-main font-normal text-[18px]"> Made Inventory Management System - Freelance   </p>
+                                    </div>
+                               </div>
+
+                               <div className="timeline font-main text-gray-300 tracking-wider ">
+                                   Feb 2026 - April
+                               </div>
                      </div>
 
                   </div>
