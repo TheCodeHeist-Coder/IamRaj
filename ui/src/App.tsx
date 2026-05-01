@@ -1,8 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Me from "./screens/Me";
+
+
 
 function App() {
 
   return (
-    <div className="bg-red-600"> Hello! Raj </div>
+    <BrowserRouter>
+    <Routes>
+
+    <Route path="/" element={<Me />} />
+
+    </Routes>
+    </BrowserRouter>
   )
   
 }
