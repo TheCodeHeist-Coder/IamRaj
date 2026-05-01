@@ -1,4 +1,4 @@
-import { FaAws, FaDocker, FaGitAlt, FaGithub, FaJenkins, FaLinkedin, FaLinux, FaNodeJs, FaPython, FaReact } from "react-icons/fa"
+import { FaAws, FaGitAlt, FaGithub, FaJenkins, FaLinkedin, FaLinux, FaNodeJs, FaPython, FaReact } from "react-icons/fa"
 import Navbar from "../components/Navbar"
 import { FaXTwitter } from "react-icons/fa6"
 import Skill from "../components/Skill"
@@ -10,6 +10,7 @@ import { GiSatelliteCommunication } from "react-icons/gi"
 import { DiRedis } from "react-icons/di"
 import { GrInstagram } from "react-icons/gr"
 import DateComponent from "../components/Date"
+import Footer from "../components/Footer"
 
 
 function Me() {
@@ -182,30 +183,8 @@ function Me() {
 
                 {/* bottom */}
                  <div className="px-8 ">
-
-                    <div className="flex items-center justify-between "> 
-                        
-                        <a className="h-12 p-12" href="https://github.com/TheCodeHeist-Coder" target="_blank">  <FaGithub className="w-10 h-10" /> </a>
-
-                        <a className="h-12 p-12 " href="https://linkedin.com/in/raj-kumar-54225532a/" target="_blank">  <FaLinkedin className="w-10 h-10"/> </a>
-
-                        <a className="h-12 p-12 " href="https://x.com/CodeHeistCoder" target="_blank">  <FaXTwitter className="w-10 h-10"/> </a>
-
-                        <a className="h-12 p-12 " href="https://www.instagram.com/raaz_kumar.r/" target="_blank">  <GrInstagram className="w-10 h-10"/> </a>
-                         </div>
-                     <div className="py-15 px-12 flex items-center justify-between">
-                        
-                        <div className="flex gap-1">
-                            <h3> &copy; </h3>
-                            <h2 className="text-gray-200"> Rajkumar </h2>
-                        </div>
-
-                        <div>
-                          <DateComponent />
-                        </div>
-
-
-                        </div>    
+                   
+                   <Footer />
 
                  </div>
 
