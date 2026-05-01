@@ -7,7 +7,6 @@ const posts = [
     title: "Building a REST API with Node.js & Express",
     date: "April 28, 2026",
     tag: "Backend",
-    tagColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
     excerpt: "A deep dive into designing scalable REST APIs with proper error handling, middleware, and authentication.",
     readTime: "8 min read",
     sections: [
@@ -71,7 +70,7 @@ app.listen(PORT, () => {
     title: "Mastering CSS Grid Layouts",
     date: "April 15, 2026",
     tag: "CSS",
-    tagColor: "text-blue-400 bg-blue-400/10 border-blue-400/20",
+
     excerpt: "CSS Grid unlocks powerful two-dimensional layouts. Here's everything you need to know with practical examples.",
     readTime: "6 min read",
     sections: [
@@ -116,7 +115,7 @@ app.listen(PORT, () => {
     title: "React useEffect: The Complete Guide",
     date: "March 30, 2026",
     tag: "React",
-    tagColor: "text-cyan-400 bg-cyan-400/10 border-cyan-400/20",
+
     excerpt: "Understand the dependency array, cleanup functions, and common pitfalls when using useEffect in React apps.",
     readTime: "10 min read",
     sections: [
@@ -172,7 +171,6 @@ function UserProfile({ userId }) {
     title: "TypeScript Generics Explained",
     date: "March 10, 2026",
     tag: "TypeScript",
-    tagColor: "text-violet-400 bg-violet-400/10 border-violet-400/20",
     excerpt: "Generics are the key to writing reusable, type-safe code. Let's break them down with real-world examples.",
     readTime: "7 min read",
     sections: [
@@ -329,9 +327,6 @@ const CodeBlock = ({ code }: any) => {
     >
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/10" style={{ background: "#2d2d2d" }}>
         <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-red-500/70" />
-          <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
-          <span className="w-3 h-3 rounded-full bg-green-500/70" />
           <span className="ml-3 text-xs text-white/40 font-mono">{code.lang}</span>
         </div>
         <button
@@ -374,23 +369,22 @@ const PostCard = ({ post, onClick }) => (
     whileHover={{ y: -4 }}
     transition={{ duration: 0.3, ease: "easeOut" }}
     onClick={onClick}
-    className="group relative cursor-pointer rounded-2xl p-6 border border-white/8 transition-colors duration-300"
-    style={{ background: "rgba(255,255,255,0.03)" }}
+    className="group relative cursor-pointer bg-black rounded-2xl p-6 border border-white/8 transition-colors duration-300"
+    
   >
     <div
       className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-      style={{ background: "radial-gradient(ellipse at 30% 0%, rgba(99,102,241,0.08) 0%, transparent 70%)" }}
     />
     <div className="flex items-start justify-between gap-4 mb-4">
-      <span className={`text-xs font-mono px-2.5 py-1 rounded-md border ${post.tagColor}`}>
+      <span className={`text-xs font-mono px-2.5 py-1 rounded-full border border-gray-300`}>
         {post.tag}
       </span>
       <span className="text-xs text-white/30 font-mono">{post.date}</span>
     </div>
-    <h2 className="text-lg font-semibold text-white/90 mb-2 group-hover:text-white transition-colors leading-snug">
+    <h2 className="text-lg font-semibold font-main text-white/90 mb-2 group-hover:text-white transition-colors leading-snug">
       {post.title}
     </h2>
-    <p className="text-sm text-white/45 leading-relaxed mb-5">{post.excerpt}</p>
+    <p className="text-sm text-white/45 leading-relaxed mb-5 font-medium">{post.excerpt}</p>
     <div className="flex items-center justify-between">
       <span className="text-xs text-white/25 font-mono">{post.readTime}</span>
       <motion.span
@@ -416,7 +410,7 @@ const PostDetail = ({ post, onBack }) => (
   >
     <button
       onClick={onBack}
-      className="flex items-center gap-2 text-sm text-white/40 hover:text-white/80 transition-colors mb-10 font-mono group"
+      className="flex items-center gap-2 cursor-pointer text-sm text-white/40 hover:text-white/80 transition-colors mb-10 font-mono group"
     >
       <motion.span whileHover={{ x: -3 }} transition={{ type: "spring", stiffness: 300 }}>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -431,12 +425,12 @@ const PostDetail = ({ post, onBack }) => (
         <span className={`text-xs font-mono px-2.5 py-1 rounded-md border ${post.tagColor}`}>
           {post.tag}
         </span>
-        <span className="text-xs text-white/30 font-mono">{post.date}</span>
-        <span className="text-xs text-white/25 font-mono">· {post.readTime}</span>
+        <span className="text-xs text-white/50 font-mono">{post.date}</span>
+        <span className="text-xs text-white/40 font-mono">· {post.readTime}</span>
       </div>
 
-      <h1 className="text-3xl font-bold text-white/95 leading-tight mb-6">{post.title}</h1>
-      <p className="text-white/55 leading-relaxed text-base mb-12">{post.excerpt}</p>
+      <h1 className="text-3xl font-bold text-white/95 leading-tight font-main mb-6">{post.title}</h1>
+      <p className="text-white/50 font-main tracking-wide leading-relaxed text-base mb-12">{post.excerpt}</p>
 
       <div className="w-full h-px bg-white/8 mb-12" />
     </motion.div>
@@ -449,13 +443,13 @@ const PostDetail = ({ post, onBack }) => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 + i * 0.1, duration: 0.4 }}
         >
-          <h2 className="text-xl font-semibold text-white/85 mb-3 flex items-center gap-3">
-            <span className="w-6 h-6 rounded-md bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-xs text-indigo-400 font-mono flex-shrink-0">
-              {i + 1}
+          <h2 className="text-xl font-semibold text-white/85 mb-3 flex items-center gap-3 font-main">
+            <span className=" rounded-md  font-extrabold  flex items-center justify-center text-md  font-mono shrink-0">
+              {i + 1}.
             </span>
             {section.heading}
           </h2>
-          <p className="text-white/50 leading-relaxed text-sm mb-2">{section.content}</p>
+          <p className="text-white/50 leading-relaxed text-md font-normal tracking-wide mb-2 font-main">{section.content}</p>
           <CodeBlock code={section.code} />
         </motion.section>
       ))}
@@ -480,9 +474,9 @@ export default function PostsPage() {
                 transition={{ duration: 0.5 }}
                 className="mb-14"
               >
-                <p className="text-xs font-mono text-indigo-400 mb-2 tracking-widest uppercase">Writing</p>
-                <h1 className="text-4xl font-bold text-white/90 mb-3">Posts</h1>
-                <p className="text-white/40 text-sm">
+                <p className="text-xs font-mono text-indigo-400 mb-2 tracking-widest uppercase">Writings</p>
+                <h1 className="text-4xl font-bold text-white/90 mb-3 font-main tracking-wide">Posts</h1>
+                <p className="text-white/40 text-sm font-semibold">
                   Thoughts on code, design, and building things on the web.
                 </p>
               </motion.div>
@@ -507,6 +501,11 @@ export default function PostsPage() {
           )}
         </AnimatePresence>
       </div>
+
+       <div className="thanks pt-6">
+        <h1 className="text-center text-gray-300 font-spec font-semibold text-4xl tracking-widest"> Thanks for walking on it... </h1>
+       </div>
+
     </div>
   );
 }
