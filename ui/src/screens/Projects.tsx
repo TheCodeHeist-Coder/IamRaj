@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar"
+import ProjectGrid from "../components/ProjectCard"
 
 function Projects() {
   return (
@@ -14,7 +15,9 @@ function Projects() {
             <p className="max-w-160 text-center font-main text-lg text-[#a5a5a5] font-medium tracking-wide"> From distributed systems to full-stack applications, each project taught me something new. Take a look around. </p>
         </div>
 
-        
+        <div className="py-12 px-8">
+            <ProjectGrid />
+        </div>
 
         </div>
 
