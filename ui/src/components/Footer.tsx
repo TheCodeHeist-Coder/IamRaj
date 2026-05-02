@@ -7,7 +7,7 @@ function Footer() {
   return (
      <>
     
-          <div className="flex items-center justify-between "> 
+          <div className="flex items-center justify-between theme-text-primary"> 
                         
                         <a className="h-12 p-12" href="https://github.com/TheCodeHeist-Coder" target="_blank">  <FaGithub className="w-10 h-10" /> </a>
 
@@ -19,12 +19,12 @@ function Footer() {
                          </div>
                      <div className="py-15 px-12 flex items-center justify-between">
                         
-                        <div className="flex gap-1">
+                        <div className="flex gap-1 theme-text-primary">
                             <h3> &copy; </h3>
-                            <h2 className="text-gray-200"> Rajkumar </h2>
+                            <h2 className="theme-text-secondary"> Rajkumar </h2>
                         </div>
 
-                        <div>
+                        <div className="theme-text-primary">
                           <DateComponent />
                         </div>
 

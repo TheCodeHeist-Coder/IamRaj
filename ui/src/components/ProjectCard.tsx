@@ -108,7 +108,7 @@ function ProjectCard({ project }: {project: any}) {
         style={{ boxShadow: "0 0 0 1px #ffffff0f" }}
       />
 
-      <div className="bg-[#0a0a0a] rounded-2xl overflow-hidden">
+      <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         {/* ── Image section ──────────────────────────────────────── */}
         <div className="relative h-52 overflow-hidden">
           <AnimatePresence mode="wait">
@@ -125,7 +125,7 @@ function ProjectCard({ project }: {project: any}) {
           </AnimatePresence>
 
           {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-[#0a0a0a08] to-transparent" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--bg-secondary), rgba(0,0,0,0.05), transparent)' }} />
 
           {/* Image dots indicator */}
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
@@ -151,7 +151,7 @@ function ProjectCard({ project }: {project: any}) {
         <div className="px-5 pt-4 pb-5 space-y-3">
           {/* Project name */}
           <motion.h3
-            className="text-[1.25rem] font-bold tracking-tight text-white leading-none"
+            className="text-[1.25rem] font-bold tracking-tight theme-text-primary leading-none"
             style={{ fontFamily: "'Syne', sans-serif", letterSpacing: "-0.02em" }}
           >
             {project.name}
@@ -159,8 +159,8 @@ function ProjectCard({ project }: {project: any}) {
 
           {/* Description */}
           <p
-            className="text-[0.8rem] leading-relaxed font-semibold"
-            style={{ color: "#6a6a6a", fontFamily: "'DM Sans', sans-serif" }}
+            className="text-[0.8rem] leading-relaxed font-semibold theme-text-secondary"
+            style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             {project.description}
           </p>
@@ -170,11 +170,10 @@ function ProjectCard({ project }: {project: any}) {
             {project.stack.map((tech:any) => (
               <span
                 key={tech}
-                className="text-[0.68rem] px-2.5 py-0.5 rounded-full font-mono tracking-wide"
+                className="text-[0.68rem] px-2.5 py-0.5 rounded-full font-mono tracking-wide theme-text-secondary"
                 style={{
-                  background: "#ffffff09",
-                  border: "1px solid #ffffff12",
-                  color: "#d1d5db",
+                  background: "var(--bg-tertiary)",
+                  border: `1px solid var(--border-color)`,
                 }}
               >
                 {tech}
@@ -192,11 +191,10 @@ function ProjectCard({ project }: {project: any}) {
               onClick={(e) => e.stopPropagation()}
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-1.5 text-[0.74rem] font-mono px-3 py-1.5 rounded-lg"
+              className="flex items-center gap-1.5 text-[0.74rem] font-mono px-3 py-1.5 rounded-lg theme-text-secondary"
               style={{
-                background: "#ffffff0c",
-                border: "1px solid #ffffff1a",
-                color: "#9ca3af",
+                background: "var(--bg-tertiary)",
+                border: `1px solid var(--border-color)`,
                 textDecoration: "none",
               }}
             >

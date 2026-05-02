@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom"
 import NightModeIcon from "../svgs/NightModeIcon"
+import SunIcon from "../svgs/SunIcon"
+import { useTheme } from "../context/ThemeContext"
 
 function Navbar() {
+    const { isDark, toggleTheme } = useTheme()
+
     return (
         <div className="py-10 w-full flex items-center font-main">
 
@@ -19,7 +23,13 @@ function Navbar() {
 
                 {/* right side links */}
                 <div className="">
-                    <button className=" cursor-pointer"> <NightModeIcon /> </button>
+                    <button 
+                        onClick={toggleTheme}
+                        className="cursor-pointer text-current transition-transform duration-300 hover:scale-110"
+                        aria-label="Toggle dark mode"
+                    > 
+                        {isDark ? <SunIcon /> : <NightModeIcon />}
+                    </button>
                 </div>
 
 

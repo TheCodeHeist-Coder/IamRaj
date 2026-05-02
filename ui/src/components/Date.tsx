@@ -6,7 +6,7 @@ function DateComponent() {
 
 
   return (
-    <div className="tracking-wider text-gray-200">
+    <div className="tracking-wider theme-text-secondary">
         {date}
     </div>
   )

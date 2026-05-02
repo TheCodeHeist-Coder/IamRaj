@@ -4,7 +4,7 @@ import PostsPage from "../components/Post"
 
 function Posts() {
   return (
-    <div className="flex justify-center bg-[#0F1010] text-white min-h-screen">
+    <div className="flex justify-center page-container min-h-screen">
 
         <div className="flex flex-col  min-h-screen  sm:-[80%] md:w-[70%] lg:w-[50%]">
 
@@ -12,8 +12,8 @@ function Posts() {
 
             {/* Header section */}
              <div className="py-10 px-8 flex flex-col items-center justify-center gap-4">
-            <h1 className="font-main text-5xl text-center font-extrabold tracking-wide"> Experinces Worth Sharing </h1>
-            <p className="max-w-188 text-center font-main text-lg text-[#a5a5a5] font-medium tracking-wide">Writing helps me think. These posts are less about showing off and more about documenting what I've faced during building. I know beginners and juniors where faced some problems. maybe you'll find something useful too.</p>
+            <h1 className="font-main text-5xl text-center font-extrabold tracking-wide theme-text-primary"> Experinces Worth Sharing </h1>
+            <p className="max-w-188 text-center font-main text-lg theme-text-secondary font-medium tracking-wide">Writing helps me think. These posts are less about showing off and more about documenting what I've faced during building. I know beginners and juniors where faced some problems. maybe you'll find something useful too.</p>
         </div>
 
 
