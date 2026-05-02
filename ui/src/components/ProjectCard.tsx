@@ -7,7 +7,7 @@ const projects = [
     name: "Rexial",
     description:
       "A real-time Quiz Plateform with GenAI where organizers can host quizzes and the participants can join that quiz via a join-code",
-    stack: ["React", "TypeScript", "Express", "Turborepo", "pnpm-workspace", "PostgreSQL", "Prisma", "WebSockets", "zustand", "Jenkins", "Dcoker", "AWS", "Nginx"],
+    stack: ["React", "TypeScript", "Express", "Redis", "Turborepo","Python", "pnpm-workspace", "PostgreSQL", "Prisma", "WebSockets", "zustand", "Jenkins", "Dcoker", "AWS", "Nginx"],
     images: [
       "/rexial02.jpeg",
       "/rexial01.jpeg",
@@ -20,14 +20,14 @@ const projects = [
     id: 2,
     name: "Ratelock",
     description:
-      "A headless e-commerce engine with blazing-fast storefronts, dynamic cart logic, and seamless payment integrations across regions.",
-    stack: ["Next.js", "Stripe", "Sanity", "TailwindCSS", "Redis"],
+      "Stop paying for API gateways you don't need. RateLock adds rate limiting to any backend in 2 lines — Redis-powered, dashboard included, zero infra to manage.",
+    stack: ["React.js", "Express", "Typescript", "TailwindCSS", "Redis", "PostgreSQL", "Prisma", "zustand", "Docker", "nginx"],
     images: [
       "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=800&q=80",
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
     ],
-    github: "https://github.com",
-    live: "https://example.com",
+    github: "https://github.com/TheCodeHeist-Coder/ratelock",
+    live: "https://github.com/TheCodeHeist-Coder/ratelock",
     accent: "#34d399",
   },
   {
