@@ -376,7 +376,7 @@ const PostCard = ({ post, onClick }) => (
       className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
     />
     <div className="flex items-start justify-between gap-4 mb-4">
-      <span className={`text-xs font-mono px-2.5 py-1 rounded-full border border-gray-300`}>
+      <span className={`text-xs font-mono px-2.5 py-1 theme-text-secondary  rounded-full border border-gray-300`}>
         {post.tag}
       </span>
       <span className="text-xs text-white/30 font-mono">{post.date}</span>
@@ -410,7 +410,7 @@ const PostDetail = ({ post, onBack }) => (
   >
     <button
       onClick={onBack}
-      className="flex items-center gap-2 cursor-pointer text-sm text-white/40 hover:text-white/80 transition-colors mb-10 font-mono group"
+      className="flex items-center gap-2 theme-text-secondary cursor-pointer text-sm text-white/40 hover:text-white/80 transition-colors mb-10 font-mono group"
     >
       <motion.span whileHover={{ x: -3 }} transition={{ type: "spring", stiffness: 300 }}>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -425,14 +425,14 @@ const PostDetail = ({ post, onBack }) => (
         <span className={`text-xs font-mono px-2.5 py-1 rounded-md border ${post.tagColor}`}>
           {post.tag}
         </span>
-        <span className="text-xs text-white/50 font-mono">{post.date}</span>
-        <span className="text-xs text-white/40 font-mono">· {post.readTime}</span>
+        <span className="text-xs text-white/50 theme-text-secondary font-mono">{post.date}</span>
+        <span className="text-xs text-white/40 font-mono theme-text-secondary">· {post.readTime}</span>
       </div>
 
-      <h1 className="text-3xl font-bold text-white/95 leading-tight font-main mb-6">{post.title}</h1>
-      <p className="text-white/50 font-main tracking-wide leading-relaxed text-base mb-12">{post.excerpt}</p>
+      <h1 className="text-3xl font-bold text-white/95 leading-tight font-main mb-6 theme-text-primary">{post.title}</h1>
+      <p className="text-white/50 font-main tracking-wide leading-relaxed text-base mb-12 theme-text-secondary">{post.excerpt}</p>
 
-      <div className="w-full h-px bg-white/8 mb-12" />
+      <div className="w-full h-px bg-white/8 mb-12 theme-bg-secondary" />
     </motion.div>
 
     <div className="space-y-12">
@@ -443,13 +443,13 @@ const PostDetail = ({ post, onBack }) => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 + i * 0.1, duration: 0.4 }}
         >
-          <h2 className="text-xl font-semibold text-white/85 mb-3 flex items-center gap-3 font-main">
-            <span className=" rounded-md  font-extrabold  flex items-center justify-center text-md  font-mono shrink-0">
+          <h2 className="text-xl font-semibold text-white/85 mb-3 theme-text-primary flex items-center gap-3 font-main">
+            <span className=" rounded-md theme-text-primary  font-extrabold  flex items-center justify-center text-md  font-mono shrink-0">
               {i + 1}.
             </span>
             {section.heading}
           </h2>
-          <p className="text-white/50 leading-relaxed text-md font-normal tracking-wide mb-2 font-main">{section.content}</p>
+          <p className="text-white/50 leading-relaxed text-md font-normal tracking-wide mb-2 theme-text-secondary font-main">{section.content}</p>
           <CodeBlock code={section.code} />
         </motion.section>
       ))}
@@ -474,9 +474,9 @@ export default function PostsPage() {
                 transition={{ duration: 0.5 }}
                 className="mb-14"
               >
-                <p className="text-xs font-mono text-indigo-400 mb-2 tracking-widest uppercase">Writings</p>
-                <h1 className="text-4xl font-bold text-white/90 mb-3 font-main tracking-wide">Posts</h1>
-                <p className="text-white/40 text-sm font-semibold">
+                <p className="text-xs font-mono text-indigo-400 theme-text-primary mb-2 tracking-widest uppercase">Writings</p>
+                <h1 className="text-4xl font-bold text-white/90 mb-3 font-main theme-text-primary tracking-wide">Posts</h1>
+                <p className="text-white/40 text-sm font-semibold theme-text-secondary">
                   Thoughts on code, design, and building things on the web.
                 </p>
               </motion.div>
@@ -503,7 +503,7 @@ export default function PostsPage() {
       </div>
 
        <div className="thanks pt-6">
-        <h1 className="text-center text-gray-300 font-spec font-semibold text-4xl tracking-widest"> Thanks for walking on it... </h1>
+        <h1 className="text-center text-gray-300 font-spec font-semibold theme-text-primary text-4xl tracking-widest"> Thanks for walking on it... </h1>
        </div>
 
     </div>
