@@ -4,21 +4,21 @@ import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-mo
 const projects = [
   {
     id: 1,
-    name: "Nebula Dashboard",
+    name: "Rexial",
     description:
-      "A real-time analytics platform with AI-driven insights, interactive data visualizations, and predictive forecasting for enterprise teams.",
-    stack: ["React", "TypeScript", "D3.js", "FastAPI", "PostgreSQL"],
+      "A real-time Quiz Plateform with GenAI where organizers can host quizzes and the participants can join that quiz via a join-code",
+    stack: ["React", "TypeScript", "Express", "Turborepo", "pnpm-workspace", "PostgreSQL", "Prisma", "WebSockets", "zustand", "Jenkins", "Dcoker", "AWS", "Nginx"],
     images: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      "/rexial02.jpeg",
+      "/rexial01.jpeg",
     ],
-    github: "https://github.com",
-    live: "https://example.com",
+    github: "https://github.com/TheCodeHeist-Coder/Rexial",
+    live: "https://rexial.in",
     accent: "#a78bfa",
   },
   {
     id: 2,
-    name: "Void Commerce",
+    name: "Ratelock",
     description:
       "A headless e-commerce engine with blazing-fast storefronts, dynamic cart logic, and seamless payment integrations across regions.",
     stack: ["Next.js", "Stripe", "Sanity", "TailwindCSS", "Redis"],
