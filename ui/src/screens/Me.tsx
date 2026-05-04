@@ -67,7 +67,7 @@ function Me() {
                         <h1 className="text-2xl font-main tracking-wide theme-text-primary font-medium"> Work Experience </h1>
                     </div>
 
-                    <div className="info flex justify-between hover:border-dashed hover:border hover:rounded-xl  hover:border-gray-500 p-3 ">
+                    <a href="https://www.vtlrewa.com/" target="_blank" className="info flex justify-between hover:border-dashed hover:border hover:rounded-xl  hover:border-gray-500 p-3 ">
                         <div className="flex items-center gap-4">
                             <div className="logo">
                                 <img className="w-12 h-12" src="/vtl.png" alt="" />
@@ -81,7 +81,7 @@ function Me() {
                         <div className="timeline font-main theme-text-secondary tracking-wider ">
                             Feb 2026 - April
                         </div>
-                    </div>
+                    </a>
 
                 </div>
 
