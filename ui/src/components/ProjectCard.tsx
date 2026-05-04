@@ -15,6 +15,7 @@ const projects = [
     github: "https://github.com/TheCodeHeist-Coder/Rexial",
     live: "https://rexial.in",
     accent: "#a78bfa",
+    status: "In Production"
   },
   {
     id: 2,
@@ -29,20 +30,7 @@ const projects = [
     github: "https://github.com/TheCodeHeist-Coder/ratelock",
     live: "https://github.com/TheCodeHeist-Coder/ratelock",
     accent: "#34d399",
-  },
-  {
-    id: 3,
-    name: "Cipher Chat",
-    description:
-      "End-to-end encrypted messaging app with ephemeral rooms, file sharing, and zero-knowledge architecture for maximum privacy.",
-    stack: ["Vue 3", "WebSockets", "Node.js", "MongoDB", "WebCrypto"],
-    images: [
-      "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80",
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
-    ],
-    github: "https://github.com",
-    live: "https://example.com",
-    accent: "#f472b6",
+    status: "In Development"
   },
 ];
 
@@ -151,10 +139,11 @@ function ProjectCard({ project }: {project: any}) {
         <div className="px-5 pt-4 pb-5 space-y-3">
           {/* Project name */}
           <motion.h3
-            className="text-[1.25rem] font-bold tracking-tight theme-text-primary leading-none"
+            className="text-[1.25rem] flex items-center justify-between font-bold tracking-tight theme-text-primary leading-none"
             style={{ fontFamily: "'Syne', sans-serif", letterSpacing: "-0.02em" }}
           >
             {project.name}
+            <span className="text-pink-500 font-extralight text-sm"> {project.status} </span>
           </motion.h3>
 
           {/* Description */}
