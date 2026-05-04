@@ -1,7 +1,26 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const posts = [
+type PostSection = {
+  heading: string;
+  content: string;
+  code?: {
+    lang: string;
+    snippet: string;
+  };
+};
+
+type Post = {
+  id: number;
+  title: string;
+  date: string;
+  tag: string;
+  excerpt: string;
+  readTime: string;
+  sections: PostSection[];
+};
+
+const posts: Post[] = [
  {
   id: 2,
   title: "Sharing Modules & Services in Turborepo (pnpm Workspace)",
@@ -603,7 +622,7 @@ const PostDetail = ({ post, onBack }: any) => (
 );
 
 export default function PostsPage() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<Post | null>(null);
 
   return (
     <div
