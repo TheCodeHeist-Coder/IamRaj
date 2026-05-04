@@ -1,15 +1,14 @@
-import { FaAws, FaGitAlt, FaGithub, FaJenkins, FaLinkedin, FaLinux, FaNodeJs, FaPython, FaReact } from "react-icons/fa"
+import { FaAws, FaGitAlt, FaGithub, FaJenkins, FaLinkedin, FaLinux, FaNodeJs, FaReact } from "react-icons/fa"
 import Navbar from "../components/Navbar"
 import { FaXTwitter } from "react-icons/fa6"
 import Skill from "../components/Skill"
 import { RiNextjsFill, RiTailwindCssLine } from "react-icons/ri"
-import { SiExpress, SiFastapi, SiHono, SiKubernetes, SiMongodb, SiNginx, SiPrisma } from "react-icons/si"
+import { SiExpress, SiHono, SiKubernetes, SiMongodb, SiNginx, SiPrisma } from "react-icons/si"
 import { BsJavascript, BsTypescript } from "react-icons/bs"
 import { BiLogoPostgresql } from "react-icons/bi"
 import { GiSatelliteCommunication } from "react-icons/gi"
 import { DiRedis } from "react-icons/di"
-import { GrInstagram } from "react-icons/gr"
-import DateComponent from "../components/Date"
+
 import Footer from "../components/Footer"
 
 

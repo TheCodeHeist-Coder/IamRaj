@@ -2,223 +2,365 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const posts = [
-  {
-    id: 1,
-    title: "Building a REST API with Node.js & Express",
-    date: "April 28, 2026",
-    tag: "Backend",
-    excerpt: "A deep dive into designing scalable REST APIs with proper error handling, middleware, and authentication.",
-    readTime: "8 min read",
-    sections: [
-      {
-        heading: "Setting Up the Project",
-        content: "Start by initializing a new Node.js project and installing Express along with the necessary middleware packages. We'll use a clean folder structure to keep things maintainable.",
-        code: {
-          lang: "bash",
-          snippet: `npm init -y
-npm install express dotenv cors helmet morgan
-npm install -D nodemon`,
-        },
+ {
+  id: 2,
+  title: "Sharing Modules & Services in Turborepo (pnpm Workspace)",
+  date: "May 5, 2026",
+  tag: "Turborepo",
+  excerpt: "Learn how to create reusable packages in Turborepo and share services across web and backend apps using pnpm workspaces.",
+  readTime: "11 min read",
+  sections: [
+    {
+      heading: "Understanding the Monorepo Structure",
+      content: "In a Turborepo, the 'apps' folder contains your applications (frontend, backend), while 'packages' holds shared code like utilities, services, and database logic.",
+      code: {
+        lang: "bash",
+        snippet: `apps/
+  web/
+  api/
+packages/
+  ui/
+  db/
+  services/
+pnpm-workspace.yaml`,
       },
-      {
-        heading: "Creating the Express Server",
-        content: "The entry point wires up middleware and routes. We use helmet for security headers, cors for cross-origin requests, and morgan for request logging.",
-        code: {
-          lang: "javascript",
-          snippet: `import express from 'express';
-import helmet from 'helmet';
-import cors from 'cors';
-import morgan from 'morgan';
-import { userRouter } from './routes/users.js';
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(helmet());
-app.use(cors());
-app.use(morgan('dev'));
-app.use(express.json());
-
-app.use('/api/users', userRouter);
-
-app.listen(PORT, () => {
-  console.log(\`Server running on port \${PORT}\`);
-});`,
-        },
+    },
+    {
+      heading: "Why Use Shared Packages?",
+      content: "Shared packages prevent code duplication and keep logic centralized. For example, authentication logic, API clients, or utility functions can be reused across both frontend and backend.",
+    },
+    {
+      heading: "Creating a Common Service Package",
+      content: "Create a new package inside the 'packages' folder. This will hold your shared service logic.",
+      code: {
+        lang: "bash",
+        snippet: `cd packages
+mkdir services
+cd services
+pnpm init -y`,
       },
-      {
-        heading: "Error Handling Middleware",
-        content: "Centralized error handling keeps your route handlers clean. Any error thrown in a route gets forwarded here via next(err).",
-        code: {
-          lang: "javascript",
-          snippet: `export const errorHandler = (err, req, res, next) => {
-  const statusCode = err.statusCode || 500;
-  const message = err.message || 'Internal Server Error';
+    },
+     {
+      heading: "Folder structure for reference",
+      content: "This is the sample folder structure  so that you can follow up with me.",
+      code: {
+        lang: "bash",
+                snippet: `packages/services/
+        │
+        ├── auth.js 
+        ├── index.js
+        ├── package.json
+        └── tsconfig.json (optional)`,
+      },
+    },
+    {
+      heading: "Setting Up package.json for Exports",
+      content: "Define a proper package name and exports so other apps can import it cleanly.",
+      code: {
+        lang: "json",
+        snippet: `{
+  "name": "@repo/services",
+  "version": "1.0.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": "./index.js",
+    "./auth": "./auth.js"
+  }
+}`,
+      },
+    },
+    {
+      heading: "Creating a Common Service (Example: Auth Service)",
+      content: "Let’s create a reusable authentication service that can be used in both frontend and backend.",
+      code: {
+        lang: "javascript",
+        snippet: `// packages/services/auth.js
 
-  res.status(statusCode).json({
-    success: false,
-    error: message,
-    ...(process.env.NODE_ENV === 'development' && { stack: err.stack }),
-  });
+export const loginUser = async (email, password) => {
+  // mock example
+  if (!email || !password) {
+    throw new Error("Missing credentials");
+  }
+
+  return {
+    id: "user_123",
+    email,
+    token: "jwt_token_example",
+  };
+};
+
+export const logoutUser = () => {
+  return { success: true };
 };`,
-        },
       },
-    ],
-  },
-  {
-    id: 2,
-    title: "Mastering CSS Grid Layouts",
-    date: "April 15, 2026",
-    tag: "CSS",
+    },
+    {
+      heading: "Exporting Services from Index File",
+      content: "Create a central export file so consumers can import everything from one place.",
+      code: {
+        lang: "javascript",
+        snippet: `// packages/services/index.js
 
-    excerpt: "CSS Grid unlocks powerful two-dimensional layouts. Here's everything you need to know with practical examples.",
-    readTime: "6 min read",
-    sections: [
-      {
-        heading: "The Grid Container",
-        content: "Grid starts with a container element. Use grid-template-columns and grid-template-rows to define the track structure. The fr unit distributes available space proportionally.",
-        code: {
-          lang: "css",
-          snippet: `.layout {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    "header header header"
-    "sidebar main aside"
-    "footer footer footer";
-  gap: 1.5rem;
-  min-height: 100vh;
-}
-
-.header { grid-area: header; }
-.sidebar { grid-area: sidebar; }
-.main   { grid-area: main; }`,
-        },
+     export * from './auth.js';`,
       },
-      {
-        heading: "Auto-Responsive Grids",
-        content: "With auto-fill and minmax, you can build grids that respond without media queries. Items wrap automatically once they can't fit the minimum size.",
-        code: {
-          lang: "css",
-          snippet: `.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
+    },
+    {
+      heading: "Adding these packages to your apps/web/package.json or apps/api/package.json",
+      content: "Ensure your package is included in pnpm workspace configuration.",
+      code: {
+        lang: "yaml",
+        snippet: `{
+  "name": "web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "depenedencies": {
+        "@repo/services": "workspace: *"    // Name should be same as the name of your package in package.json
+    }
 }`,
-        },
       },
-    ],
-  },
-  {
-    id: 3,
-    title: "React useEffect: The Complete Guide",
-    date: "March 30, 2026",
-    tag: "React",
-
-    excerpt: "Understand the dependency array, cleanup functions, and common pitfalls when using useEffect in React apps.",
-    readTime: "10 min read",
-    sections: [
-      {
-        heading: "Basic Usage & Dependencies",
-        content: "useEffect runs after every render by default. Pass a dependency array as the second argument to control when it re-runs. An empty array means it runs once on mount.",
-        code: {
-          lang: "jsx",
-          snippet: `import { useState, useEffect } from 'react';
-
-function UserProfile({ userId }) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch(\`/api/users/\${userId}\`)
-      .then(res => res.json())
-      .then(data => {
-        setUser(data);
-        setLoading(false);
-      });
-  }, [userId]); // Re-runs only when userId changes
-
-  if (loading) return <Spinner />;
-  return <div>{user?.name}</div>;
-}`,
-        },
+    },
+    {
+      heading: "Now, update dependencies globally",
+      content: "To use these import services or packges, now update the dependencies globally, run pnpm install from the root of the repo",
+      code: {
+        lang: "bash",
+        snippet: `
+         pnpm install
+         `,
       },
-      {
-        heading: "Cleanup Functions",
-        content: "Return a function from useEffect to run cleanup before the next effect or on unmount. Essential for subscriptions, timers, and event listeners.",
-        code: {
-          lang: "jsx",
-          snippet: `useEffect(() => {
-  const controller = new AbortController();
+    },
+    
+    {
+      heading: "Backend Usage Example",
+      content: "Now you can import and use the shared service in your backend routes.",
+      code: {
+        lang: "javascript",
+        snippet: `import { loginUser } from '@repo/services';
 
-  fetch('/api/data', { signal: controller.signal })
-    .then(res => res.json())
-    .then(setData)
-    .catch(err => {
-      if (err.name !== 'AbortError') console.error(err);
-    });
-
-  return () => controller.abort(); // Cleanup on unmount
-}, []);`,
-        },
+app.post('/login', async (req, res) => {
+  try {
+    const user = await loginUser(req.body.email, req.body.password);
+    res.json(user);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});`,
       },
-    ],
-  },
-  {
-    id: 4,
-    title: "TypeScript Generics Explained",
-    date: "March 10, 2026",
-    tag: "TypeScript",
-    excerpt: "Generics are the key to writing reusable, type-safe code. Let's break them down with real-world examples.",
-    readTime: "7 min read",
-    sections: [
-      {
-        heading: "Your First Generic Function",
-        content: "A generic function works with any type while preserving type information. The type parameter T acts as a placeholder that TypeScript fills in at call site.",
-        code: {
-          lang: "typescript",
-          snippet: `function identity<T>(value: T): T {
-  return value;
+    },
+    {
+      heading: "Frontend Usage Example",
+      content: "Import the same service and use it inside your UI logic.",
+      code: {
+        lang: "javascript",
+        snippet: `import { loginUser } from '@repo/services';
+
+const handleLogin = async () => {
+  const user = await loginUser("test@mail.com", "123456");
+  console.log(user);
+};`,
+      },
+    },
+    {
+      heading: "TypeScript Support (Optional but Recommended)",
+      content: "If you're using TypeScript, define types inside your package for better DX.",
+      code: {
+        lang: "typescript",
+        snippet: `// packages/services/auth.ts
+
+export interface User {
+  id: string;
+  email: string;
+  token: string;
 }
 
-const num = identity<number>(42);     // num: number
-const str = identity("hello");         // str: string (inferred)
-
-// Generic with constraint
-function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
-  return obj[key];
-}
-
-const user = { name: 'Alex', age: 28 };
-const name = getProperty(user, 'name'); // string`,
-        },
+export const loginUser = async (email: string, password: string): Promise<User> => {
+  return {
+    id: "user_123",
+    email,
+    token: "jwt_token_example",
+  };
+};`,
       },
-      {
-        heading: "Generic React Components",
-        content: "Generics shine in React when you want a reusable component that works with different data shapes.",
-        code: {
-          lang: "tsx",
-          snippet: `interface ListProps<T> {
-  items: T[];
-  renderItem: (item: T, index: number) => React.ReactNode;
-  keyExtractor: (item: T) => string;
-}
+    },
+    {
+      heading: "Common Issues and Fixes",
+      content: "Here are some common problems when sharing packages in Turborepo.",
+      code: {
+        lang: "bash",
+        snippet: `# Issue 1: Module not found
+# Fix: Ensure package name matches and is installed
 
-function List<T>({ items, renderItem, keyExtractor }: ListProps<T>) {
-  return (
-    <ul>
-      {items.map((item, i) => (
-        <li key={keyExtractor(item)}>{renderItem(item, i)}</li>
-      ))}
-    </ul>
-  );
-}`,
-        },
+# Issue 2: Changes not reflecting
+# Fix: Restart dev server or use turbo watch
+
+# Issue 3: ESM/CJS conflict
+# Fix: Add "type": "module" in package.json
+
+# Issue 4: Types not working
+# Fix: Ensure "types" field is defined`,
       },
-    ],
-  },
+    },
+    {
+      heading: "Best Practices",
+      content: "Keep shared packages small and focused. Avoid putting app-specific logic inside them. Treat packages like independent libraries with clear boundaries.",
+    },
+    {
+      heading: "Final Thoughts",
+      content: "Sharing services through the packages folder is one of the most powerful patterns in Turborepo. It improves maintainability, reduces duplication, and helps scale your applications cleanly across frontend and backend.",
+    },
+  ],
+},
+
+    
+
+
+{
+  id: 3,
+  title: "Multi-Stage vs Normal Dockerfile (Complete Guide)",
+  date: "May 5, 2026",
+  tag: "Docker",
+  excerpt: "Understand the difference between normal and multi-stage Dockerfiles, why multi-stage builds matter, and how to use them for cleaner, smaller production images.",
+  readTime: "9 min read",
+  sections: [
+    {
+      heading: "What is a Dockerfile?",
+      content: "A Dockerfile is a set of instructions used to build a Docker image. It defines how your application is packaged, including dependencies, environment, and runtime setup.",
+    },
+    {
+      heading: "Normal Dockerfile (Single Stage)",
+      content: "A normal Dockerfile builds everything in a single stage. This means dependencies, build tools, and final app all exist in the same image.",
+      code: {
+        lang: "docker",
+        snippet: `# Single-stage Dockerfile
+
+FROM node:22-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["node", "dist/index.js"]`,
+      },
+    },
+    {
+      heading: "Problem with Normal Dockerfile",
+      content: "Single-stage builds include unnecessary files like dev dependencies, source code, and build tools. This leads to larger image sizes and potential security risks.",
+      code: {
+        lang: "bash",
+        snippet: `# Issues:
+- Large image size
+- Slower deployments
+- More attack surface
+- Includes dev dependencies`,
+      },
+    },
+    {
+      heading: "What is Multi-Stage Dockerfile?",
+      content: "Multi-stage builds allow you to use multiple FROM statements. You can separate build and runtime environments, copying only necessary artifacts to the final image.",
+    },
+    {
+      heading: "Multi-Stage Dockerfile Example",
+      content: "Here’s how you can optimize your Dockerfile using multi-stage builds.",
+      code: {
+        lang: "docker",
+        snippet: `# Stage 1: Build stage
+FROM node:22:alpine AS builder
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build
+
+# Stage 2: Production stage
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/dist ./dist
+COPY package.json ./
+
+RUN npm install --only=production
+
+EXPOSE 3000
+
+CMD ["node", "dist/index.js"]`,
+      },
+    },
+    {
+      heading: "How Multi-Stage Works",
+      content: "The first stage builds the app (with all dependencies). The second stage copies only the compiled output (like dist folder), keeping the final image clean and lightweight.",
+    },
+    {
+      heading: "Key Benefits of Multi-Stage Builds",
+      content: "Multi-stage Dockerfiles significantly improve production readiness.",
+      code: {
+        lang: "bash",
+        snippet: `# Benefits:
+- Smaller image size
+- Faster deployments
+- Improved security
+- Cleaner separation of concerns
+- No dev dependencies in production`,
+      },
+    },
+    {
+      heading: "Real Comparison (Size Difference)",
+      content: "Let’s compare image sizes between single-stage and multi-stage builds.",
+      code: {
+        lang: "bash",
+        snippet: `# Single-stage image
+~800MB
+
+# Multi-stage image
+~150MB`,
+      },
+    },
+    {
+      heading: "Best Practices",
+      content: "Follow these practices when writing Dockerfiles for production.",
+      code: {
+        lang: "bash",
+        snippet: `# Use alpine images when possible
+# Separate build and runtime
+# Avoid copying unnecessary files
+# Use .dockerignore
+# Install only production dependencies`,
+      },
+    },
+    {
+      heading: "Common Mistakes",
+      content: "Even with multi-stage builds, some common mistakes can reduce effectiveness.",
+      code: {
+        lang: "bash",
+        snippet: `# Mistake 1: Copying node_modules from builder
+# Mistake 2: Not using alpine images
+# Mistake 3: Leaving build tools in final image
+# Mistake 4: Not using --only=production`,
+      },
+    },
+    {
+      heading: "When to Use Which?",
+      content: "Single-stage Dockerfiles are fine for quick prototypes or local development. Multi-stage builds should always be used for production-grade applications.",
+    },
+    {
+      heading: "Final Thoughts",
+      content: "Multi-stage Dockerfiles are a must-have for modern applications. They help you ship smaller, faster, and more secure containers. Once you start using them, going back to single-stage builds feels inefficient and outdated.",
+    },
+  ],
+}
+  
 ];
 
 const tokenize = (code:any, lang:any) => {
@@ -308,10 +450,13 @@ const tokenize = (code:any, lang:any) => {
 };
 
 const CodeBlock = ({ code }: any) => {
+   if (!code) return null; // 👈 important guard
+
   const [copied, setCopied] = useState(false);
-  const lines = tokenize(code.snippet, code.lang);
+  const lines = tokenize(code.snippet || "", code.lang || "javascript");
 
   const handleCopy = () => {
+    if (!code.snippet) return;
     navigator.clipboard.writeText(code.snippet);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -450,7 +595,7 @@ const PostDetail = ({ post, onBack }) => (
             {section.heading}
           </h2>
           <p className="text-white/50 leading-relaxed text-md font-normal tracking-wide mb-2 theme-text-secondary font-main">{section.content}</p>
-          <CodeBlock code={section.code} />
+         {section.code && <CodeBlock code={section.code} />}
         </motion.section>
       ))}
     </div>
