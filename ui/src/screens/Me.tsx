@@ -121,57 +121,23 @@ function Me() {
                     <div className="flex gap-5 flex-wrap ">
                         <Skill icon={<FaReact />} name="React" />
                         <Skill icon={<RiNextjsFill />} name="NextJs" />
-
                         <Skill icon={<FaNodeJs />} name="NodeJs" />
-
                         <Skill icon={<SiExpress />} name="ExpressJs" />
-
                         <Skill icon={<BsJavascript />} name="JavaScript" />
-
                         <Skill icon={<BsTypescript />} name="TypeScipt" />
-
-
                         <Skill icon={<SiMongodb />} name="MongoDB" />
-
                         <Skill icon={<BiLogoPostgresql />} name="PostgreSQL" />
-
-
-
                         <Skill icon={<SiPrisma />} name="Prisma" />
-
                         <Skill icon={<RiTailwindCssLine />} name="TailwindCss" />
-
                         <Skill icon={<SiHono />} name="Hono" />
-
-
                         <Skill icon={<GiSatelliteCommunication />} name="Real-time-communication" />
-
-                        <Skill icon={<FaPython />} name="Python" />
-
-                        <Skill icon={<FaPython />} name="Python" />
-
-
-
-                        <Skill icon={<SiFastapi />} name="FastAPI" />
-
                         <Skill icon={<DiRedis />} name="Redis" />
-
                         <Skill icon={<SiNginx />} name="Nginx" />
-
-
-
                         <Skill icon={<FaAws />} name="AWS" />
-
-
                         <Skill icon={<FaJenkins />} name="Jenkins" />
-
-
                         <Skill icon={<FaGitAlt />} name="Git & Github" />
-
                         <Skill icon={<SiKubernetes />} name="Kubernetes" />
-
                         <Skill icon={<FaLinux />} name="Linux" />
-
                     </div>
 
 
