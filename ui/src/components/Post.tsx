@@ -403,7 +403,7 @@ const tokenize = (code:any, lang:any) => {
       return <div key={li}><span style={{ color: "#d4d4d4" }}>{line}</span></div>;
     }
 
-    const kws = keywords[lang] || keywords.javascript;
+    const kws = keywords[lang as keyof typeof keywords] || keywords.javascript;
     const parts = [];
     let remaining = line;
     let key = 0;
@@ -505,7 +505,7 @@ const CodeBlock = ({ code }: any) => {
   );
 };
 
-const PostCard = ({ post, onClick }) => (
+const PostCard = ({ post, onClick }: any) => (
   <motion.article
     layout
     initial={{ opacity: 0, y: 24 }}
@@ -545,7 +545,7 @@ const PostCard = ({ post, onClick }) => (
   </motion.article>
 );
 
-const PostDetail = ({ post, onBack }) => (
+const PostDetail = ({ post, onBack }: any) => (
   <motion.div
     initial={{ opacity: 0, x: 40 }}
     animate={{ opacity: 1, x: 0 }}
@@ -581,7 +581,7 @@ const PostDetail = ({ post, onBack }) => (
     </motion.div>
 
     <div className="space-y-12">
-      {post.sections.map((section, i) => (
+      {post.sections.map((section:any, i:any) => (
         <motion.section
           key={i}
           initial={{ opacity: 0, y: 20 }}
