@@ -66,6 +66,26 @@ function Me() {
                         <h1 className="text-2xl font-main tracking-wide theme-text-primary font-medium"> Work Experience </h1>
                     </div>
 
+                    <div className="flex flex-col gap-12">
+
+                 
+
+                     <a href="https://nextgenautomationtechnologies.com/" target="_blank" className="info flex justify-between hover:border-dashed hover:border hover:rounded-xl  hover:border-gray-500 p-3 ">
+                        <div className="flex items-center gap-4">
+                            <div className="logo">
+                                <img className="w-12 h-12" src="nextgen.png" alt="" />
+                            </div>
+                            <div className="flex flex-col">
+                                <h1 className="font-main text-2xl font-semibold theme-text-primary"> NextGen Automation Technologies </h1>
+                                <p className="theme-text-secondary mt-1 font-main font-normal text-[18px]"> Full Stack Developer - Intern   </p>
+                            </div>
+                        </div>
+
+                        <div className="timeline font-main theme-text-secondary tracking-wider ">
+                            May 2026 - Present
+                        </div>
+                    </a>
+
                     <a href="https://www.vtlrewa.com/" target="_blank" className="info flex justify-between hover:border-dashed hover:border hover:rounded-xl  hover:border-gray-500 p-3 ">
                         <div className="flex items-center gap-4">
                             <div className="logo">
@@ -81,6 +101,8 @@ function Me() {
                             Feb 2026 - April
                         </div>
                     </a>
+
+                       </div>
 
                 </div>
 
