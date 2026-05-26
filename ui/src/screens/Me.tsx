@@ -7,7 +7,7 @@ import { SiExpress, SiHono, SiKubernetes, SiMongodb, SiNginx, SiPrisma } from "r
 import { BsJavascript, BsTypescript } from "react-icons/bs"
 import { BiLogoPostgresql } from "react-icons/bi"
 import { GiSatelliteCommunication } from "react-icons/gi"
-import { DiRedis } from "react-icons/di"
+import { DiPython, DiRedis } from "react-icons/di"
 
 import Footer from "../components/Footer"
 
@@ -146,6 +146,7 @@ function Me() {
                         <Skill icon={<SiExpress />} name="ExpressJs" />
                         <Skill icon={<BsJavascript />} name="JavaScript" />
                         <Skill icon={<BsTypescript />} name="TypeScipt" />
+                        <Skill icon={<DiPython />} name="Python" />
                         <Skill icon={<SiMongodb />} name="MongoDB" />
                         <Skill icon={<BiLogoPostgresql />} name="PostgreSQL" />
                         <Skill icon={<SiPrisma />} name="Prisma" />
