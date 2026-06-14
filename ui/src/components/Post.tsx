@@ -545,7 +545,7 @@ const PostCard = ({ post, onClick }: any) => (
       </span>
       <span className="text-xs text-white/30 font-mono">{post.date}</span>
     </div>
-    <h2 className="text-lg font-semibold font-main text-white/90 mb-2 group-hover:text-white transition-colors leading-snug">
+    <h2 className="text-lg font-semibold font-main text-white/90 mb-2 group-hover:text-white transition-colors leading-snug wrap-break-word">
       {post.title}
     </h2>
     <p className="text-sm text-white/45 leading-relaxed mb-5 font-medium">{post.excerpt}</p>
@@ -593,7 +593,7 @@ const PostDetail = ({ post, onBack }: any) => (
         <span className="text-xs text-white/40 font-mono theme-text-secondary">· {post.readTime}</span>
       </div>
 
-      <h1 className="text-3xl font-bold text-white/95 leading-tight font-main mb-6 theme-text-primary">{post.title}</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-white/95 leading-tight font-main mb-6 theme-text-primary wrap-break-word">{post.title}</h1>
       <p className="text-white/50 font-main tracking-wide leading-relaxed text-base mb-12 theme-text-secondary">{post.excerpt}</p>
 
       <div className="w-full h-px bg-white/8 mb-12 theme-bg-secondary" />
@@ -626,7 +626,7 @@ export default function PostsPage() {
 
   return (
     <div
-      className="px-6 py-8 "
+      className="px-2 sm:px-6 py-8 "
     >
       <div className="max-w-2xl mx-auto">
         <AnimatePresence mode="wait">
@@ -667,7 +667,7 @@ export default function PostsPage() {
       </div>
 
        <div className="thanks pt-6">
-        <h1 className="text-center text-gray-300 font-spec font-semibold theme-text-primary text-4xl tracking-widest"> Thanks for walking on it... </h1>
+        <h1 className="text-center text-gray-300 font-spec font-semibold theme-text-primary text-2xl sm:text-4xl tracking-widest"> Thanks for walking on it... </h1>
        </div>
 
     </div>
