@@ -53,6 +53,13 @@ body {
 
 body {
   font-family: var(--font-main);
+  /* hand-shaped cursor across the site: custom SVG hand, native pointer hand as fallback */
+  cursor: url("/cursor-hand.svg") 10 4, pointer;
+}
+
+/* keep the hand cursor everywhere, including over links/buttons/text */
+* {
+  cursor: inherit;
 }
 
 /* Infinite right-to-left marquee */
