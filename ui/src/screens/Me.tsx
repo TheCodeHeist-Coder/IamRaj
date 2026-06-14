@@ -8,8 +8,11 @@ import { BsJavascript, BsTypescript } from "react-icons/bs"
 import { BiLogoPostgresql } from "react-icons/bi"
 import { GiSatelliteCommunication } from "react-icons/gi"
 import { DiPython, DiRedis } from "react-icons/di"
+import { motion } from "framer-motion"
 
 import Footer from "../components/Footer"
+import Reveal from "../components/Reveal"
+import RotatingRole from "../components/RotatingRole"
 
 
 function Me() {
@@ -21,29 +24,69 @@ function Me() {
                 <Navbar />
 
                 {/* info section */}
-                <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7 px-2 py-7 text-center sm:text-left">
+                <motion.div
+                    className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7 px-2 py-7 text-center sm:text-left"
+                    initial="hidden"
+                    animate="show"
+                    variants={{
+                        hidden: {},
+                        show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+                    }}
+                >
 
-                    <div className="shrink-0">
-                        <img className="w-36 h-36 sm:w-45 sm:h-45" src="/try.jpeg" alt="" />
-                    </div>
+                    <motion.div
+                        className="shrink-0 relative group w-36 h-36 sm:w-45 sm:h-45"
+                        variants={{
+                            hidden: { opacity: 0, scale: 0.8 },
+                            show: { opacity: 1, scale: 1 },
+                        }}
+                        transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                        whileHover={{ scale: 1.05, rotate: -2 }}
+                    >
+                        {/* default image — fades out on hover */}
+                        <img className="absolute inset-0 w-full h-full rounded-2xl object-cover transition-opacity duration-500 ease-in-out group-hover:opacity-0" src="/try.jpeg" alt="Raj Kumar" />
+                        {/* hover image — fades in on hover */}
+                        <img className="absolute inset-0 w-full h-full rounded-full object-cover opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100" src="/codeheist.jpeg" alt="Raj Kumar" />
+                    </motion.div>
 
                     {/* About */}
                     <div className="flex flex-col gap-2 items-center sm:items-start">
-                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-main tracking-wid font-extrabold theme-text-primary">Raj Kumar </h1>
-                        <h4 className="theme-text-tertiary font-main font-medium text-base sm:text-[18px] tracking-wide"> Full Stack Developer & Devops Engg. </h4>
+                        <motion.h1
+                            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-main tracking-wid font-extrabold theme-text-primary"
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                show: { opacity: 1, y: 0 },
+                            }}
+                        >
+                            Raj Kumar{" "}
+                        </motion.h1>
+                        <motion.div
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                show: { opacity: 1, y: 0 },
+                            }}
+                        >
+                            <RotatingRole />
+                        </motion.div>
 
-                        <div className="links flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-8 mt-3 font-main text-base sm:text-lg">
-                            <a href="https://github.com/TheCodeHeist-Coder" target="_blank" className="flex gap-2 items-center tracking-wide theme-text-primary transition-all duration-200 hover:opacity-70" > <FaGithub className="w-6 h-6" /> GitHub</a>
-                            <a href="https://www.linkedin.com/in/raj-kumar-54225532a/" target="_blank" className="flex gap-2 items-center tracking-wide text-[#51a2ff] transition-all duration-200 hover:text-[#115eb6]"><FaLinkedin className="w-6 h-6" /> LinkedIn</a>
-                            <a href="https://x.com/CodeHeistCoder" target="_blank" className="flex gap-2 items-center theme-text-primary transition-all duration-200 hover:opacity-70"> <FaXTwitter className="w-6 h-6" /> Twitter</a>
-                        </div>
+                        <motion.div
+                            className="links flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-8 mt-3 font-main text-base sm:text-lg"
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                show: { opacity: 1, y: 0 },
+                            }}
+                        >
+                            <a href="https://github.com/TheCodeHeist-Coder" target="_blank" className="flex gap-2 items-center tracking-wide theme-text-primary transition-all duration-200 hover:opacity-70 hover:-translate-y-0.5" > <FaGithub className="w-6 h-6" /> GitHub</a>
+                            <a href="https://www.linkedin.com/in/raj-kumar-54225532a/" target="_blank" className="flex gap-2 items-center tracking-wide text-[#51a2ff] transition-all duration-200 hover:text-[#115eb6] hover:-translate-y-0.5"><FaLinkedin className="w-6 h-6" /> LinkedIn</a>
+                            <a href="https://x.com/CodeHeistCoder" target="_blank" className="flex gap-2 items-center theme-text-primary transition-all duration-200 hover:opacity-70 hover:-translate-y-0.5"> <FaXTwitter className="w-6 h-6" /> Twitter</a>
+                        </motion.div>
 
                     </div>
-                </div>
+                </motion.div>
 
 
                 {/* brief about me */}
-                <div className="flex flex-col gap-2 px-2 sm:px-5 py-10">
+                <Reveal className="flex flex-col gap-2 px-2 sm:px-5 py-10">
 
                     <div>
                         <h1 className="text-[20px] theme-text-primary font-main font-semibold tracking-wide"> Who Am I : </h1>
@@ -52,10 +95,10 @@ function Me() {
                     <div className="font-main theme-text-secondary font-medium ">
                         <p className="leading-7 text-base sm:text-[17px]"> just a guy who codes, lifts, and tries to stay consistent. You know that feeling when code finally works the way you imagined? Yeah, I chase that feeling every single day. </p>
                         <p className="leading-7 mt-2 text-base sm:text-[17px]"> I'm basically an engineer with a dangerous habit of starting side projects at 2 AM (sleep is for people without ideas, right?). I love building stuff that makes people ask "how'd you do that?" and honestly, sometimes I wonder too. Hand me a problem and watch my brain speedrun five different solutions before you finish explaining it. </p>
-                        <p className="text-center theme-text-secondary text-3xl sm:text-4xl lg:text-5xl mt-5 font-extrabold font-spec tracking-wider"> {"< Full Stack & Devops />"} </p>
+                        <p className="text-center theme-text-secondary text-3xl sm:text-4xl lg:text-5xl mt-5 font-extrabold font-spec tracking-wider transition-colors duration-300 hover:text-[#51a2ff]"> {"< Full Stack & Devops />"} </p>
                     </div>
 
-                </div>
+                </Reveal>
 
 
                 {/* Currently learning — infinite marquee */}
@@ -78,7 +121,7 @@ function Me() {
 
 
                 {/* Work experrience */}
-                <div className="px-2 sm:px-8 py-12 flex flex-col  gap-1">
+                <Reveal className="px-2 sm:px-8 py-12 flex flex-col  gap-1">
 
                     <div className="mb-3">
                         <h1 className="text-2xl font-main tracking-wide theme-text-primary font-medium"> Work Experience </h1>
@@ -122,11 +165,11 @@ function Me() {
 
                        </div>
 
-                </div>
+                </Reveal>
 
 
                 {/* Education */}
-                <div className="px-2 sm:px-8 py-8 flex flex-col  gap-1">
+                <Reveal className="px-2 sm:px-8 py-8 flex flex-col  gap-1">
 
                     <div className="mb-3">
                         <h1 className="text-2xl font-main tracking-wide theme-text-secondary font-medium"> Education </h1>
@@ -148,41 +191,62 @@ function Me() {
                         </div>
                     </a>
 
-                </div>
+                </Reveal>
 
                 {/* Skills and tools */}
-                <div className="px-2 sm:px-8 py-14 sm:py-18 flex flex-col gap-3">
+                <Reveal className="px-2 sm:px-8 py-14 sm:py-18 flex flex-col gap-3">
 
                     <div>
                         <h1 className="text-2xl font-semibold font-main tracking-wide theme-text-primary"> Skills & Tools I Use </h1>
                     </div>
 
-                    <div className="flex gap-3 sm:gap-5 flex-wrap ">
-                        <Skill icon={<FaReact />} name="React" />
-                        <Skill icon={<RiNextjsFill />} name="NextJs" />
-                        <Skill icon={<FaNodeJs />} name="NodeJs" />
-                        <Skill icon={<SiExpress />} name="ExpressJs" />
-                        <Skill icon={<BsJavascript />} name="JavaScript" />
-                        <Skill icon={<BsTypescript />} name="TypeScipt" />
-                        <Skill icon={<DiPython />} name="Python" />
-                        <Skill icon={<SiMongodb />} name="MongoDB" />
-                        <Skill icon={<BiLogoPostgresql />} name="PostgreSQL" />
-                        <Skill icon={<SiPrisma />} name="Prisma" />
-                        <Skill icon={<RiTailwindCssLine />} name="TailwindCss" />
-                        <Skill icon={<SiHono />} name="Hono" />
-                        <Skill icon={<GiSatelliteCommunication />} name="Real-time-communication" />
-                        <Skill icon={<DiRedis />} name="Redis" />
-                        <Skill icon={<SiNginx />} name="Nginx" />
-                        <Skill icon={<FaAws />} name="AWS" />
-                        <Skill icon={<FaJenkins />} name="Jenkins" />
-                        <Skill icon={<FaGitAlt />} name="Git & Github" />
-                        <Skill icon={<SiKubernetes />} name="Kubernetes" />
-                        <Skill icon={<FaLinux />} name="Linux" />
-                    </div>
+                    <motion.div
+                        className="flex gap-3 sm:gap-5 flex-wrap "
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, margin: "-40px" }}
+                        variants={{
+                            hidden: {},
+                            show: { transition: { staggerChildren: 0.04 } },
+                        }}
+                    >
+                        {[
+                            { icon: <FaReact />, name: "React" },
+                            { icon: <RiNextjsFill />, name: "NextJs" },
+                            { icon: <FaNodeJs />, name: "NodeJs" },
+                            { icon: <SiExpress />, name: "ExpressJs" },
+                            { icon: <BsJavascript />, name: "JavaScript" },
+                            { icon: <BsTypescript />, name: "TypeScipt" },
+                            { icon: <DiPython />, name: "Python" },
+                            { icon: <SiMongodb />, name: "MongoDB" },
+                            { icon: <BiLogoPostgresql />, name: "PostgreSQL" },
+                            { icon: <SiPrisma />, name: "Prisma" },
+                            { icon: <RiTailwindCssLine />, name: "TailwindCss" },
+                            { icon: <SiHono />, name: "Hono" },
+                            { icon: <GiSatelliteCommunication />, name: "Real-time-communication" },
+                            { icon: <DiRedis />, name: "Redis" },
+                            { icon: <SiNginx />, name: "Nginx" },
+                            { icon: <FaAws />, name: "AWS" },
+                            { icon: <FaJenkins />, name: "Jenkins" },
+                            { icon: <FaGitAlt />, name: "Git & Github" },
+                            { icon: <SiKubernetes />, name: "Kubernetes" },
+                            { icon: <FaLinux />, name: "Linux" },
+                        ].map((skill) => (
+                            <motion.div
+                                key={skill.name}
+                                variants={{
+                                    hidden: { opacity: 0, scale: 0.8, y: 10 },
+                                    show: { opacity: 1, scale: 1, y: 0 },
+                                }}
+                            >
+                                <Skill icon={skill.icon} name={skill.name} />
+                            </motion.div>
+                        ))}
+                    </motion.div>
 
 
 
-                </div>
+                </Reveal>
 
 
 
