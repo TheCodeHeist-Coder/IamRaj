@@ -109,7 +109,7 @@ function Me() {
                                 {Array.from({ length: 6 }).map((_, i) => (
                                     <span key={i} className="flex items-center">
                                         <span className="font-spec font-bold theme-text-primary text-3xl sm:text-4xl lg:text-5xl tracking-wider whitespace-nowrap px-6 sm:px-10">
-                                            Diving into AI &amp; ML
+                                            System Programming in Rust 🦀
                                         </span>
                                         <span className="text-[#51a2ff] text-2xl sm:text-3xl">✦</span>
                                     </span>
