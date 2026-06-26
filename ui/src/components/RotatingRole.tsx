@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 const ROLES = [
     "Full Stack Developer",
     "DevOps Engineer",
-    "AI / ML Explorer",
+    "System Programming Rust",
 ]
 
 /**
