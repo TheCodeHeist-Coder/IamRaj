@@ -1,4 +1,4 @@
-import { FaAws, FaGitAlt, FaGithub, FaJenkins, FaLinkedin, FaLinux, FaNodeJs, FaReact } from "react-icons/fa"
+import { FaAws, FaFileDownload, FaGitAlt, FaGithub, FaJenkins, FaLinkedin, FaLinux, FaNodeJs, FaReact } from "react-icons/fa"
 import Navbar from "../components/Navbar"
 import { FaXTwitter } from "react-icons/fa6"
 import Skill from "../components/Skill"
@@ -9,13 +9,17 @@ import { BiLogoPostgresql } from "react-icons/bi"
 import { GiSatelliteCommunication } from "react-icons/gi"
 import { DiPython, DiRedis } from "react-icons/di"
 import { motion } from "framer-motion"
+import { useState } from "react"
 
 import Footer from "../components/Footer"
 import Reveal from "../components/Reveal"
 import RotatingRole from "../components/RotatingRole"
+import ResumeModal from "../components/ResumeModal"
 
 
 function Me() {
+    const [resumeOpen, setResumeOpen] = useState(false)
+
     return (
         <div className="flex justify-center page-container min-h-screen">
 
@@ -79,6 +83,7 @@ function Me() {
                             <a href="https://github.com/TheCodeHeist-Coder" target="_blank" className="flex gap-2 items-center tracking-wide theme-text-primary transition-all duration-200 hover:opacity-70 hover:-translate-y-0.5" > <FaGithub className="w-6 h-6" /> GitHub</a>
                             <a href="https://www.linkedin.com/in/raj-kumar-54225532a/" target="_blank" className="flex gap-2 items-center tracking-wide text-[#51a2ff] transition-all duration-200 hover:text-[#115eb6] hover:-translate-y-0.5"><FaLinkedin className="w-6 h-6" /> LinkedIn</a>
                             <a href="https://x.com/CodeHeistCoder" target="_blank" className="flex gap-2 items-center theme-text-primary transition-all duration-200 hover:opacity-70 hover:-translate-y-0.5"> <FaXTwitter className="w-6 h-6" /> Twitter</a>
+                            <button onClick={() => setResumeOpen(true)} className="resume-btn flex gap-2 items-center tracking-wide font-normal font-main rounded-lg px-4 py-1.5 transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"> <FaFileDownload className="w-5 h-5" /> Resume</button>
                         </motion.div>
 
                     </div>
@@ -265,6 +270,12 @@ function Me() {
             </div>
 
 
+            <ResumeModal
+                open={resumeOpen}
+                onClose={() => setResumeOpen(false)}
+                fileUrl="/Rajkumar.pdf"
+                fileName="Rajkumar-Resume.pdf"
+            />
 
 
         </div>
