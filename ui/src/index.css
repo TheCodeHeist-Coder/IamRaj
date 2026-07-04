@@ -62,6 +62,36 @@ body {
   cursor: inherit;
 }
 
+/* Resume button — theme-aware button that fills with accent on hover */
+.resume-btn {
+  color: var(--text-primary);
+  background-color: transparent;
+}
+
+.resume-btn:hover {
+  color: var(--accent-blue);
+}
+
+/* Resume preview modal — theme-aware surfaces */
+.resume-modal {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+}
+
+.resume-modal-header {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.resume-modal-close:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.resume-modal-frame {
+  background-color: var(--bg-secondary);
+}
+
 /* Infinite right-to-left marquee */
 @keyframes marquee-rtl {
   from {
