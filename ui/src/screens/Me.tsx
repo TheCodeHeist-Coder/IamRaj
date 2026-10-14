@@ -1,7 +1,8 @@
 import { FaAws, FaFileDownload, FaGitAlt, FaGithub, FaJenkins, FaLinkedin, FaLinux, FaNodeJs, FaReact } from "react-icons/fa"
 import Navbar from "../components/Navbar"
-import { FaXTwitter } from "react-icons/fa6"
+import { FaGolang, FaXTwitter } from "react-icons/fa6"
 import Skill from "../components/Skill"
+import StatusBadge from "../components/StatusBadge"
 import { RiNextjsFill, RiTailwindCssLine } from "react-icons/ri"
 import { SiExpress, SiHono, SiKubernetes, SiMongodb, SiNginx, SiPrisma } from "react-icons/si"
 import { BsJavascript, BsTypescript } from "react-icons/bs"
@@ -38,6 +39,9 @@ function Me() {
                     }}
                 >
 
+                    {/* wrapper holds the photo and the status badge side by side, so hovering
+                        the badge doesn't trigger the photo's hover swap */}
+                    <div className="shrink-0 relative">
                     <motion.div
                         className="shrink-0 relative group w-36 h-36 sm:w-45 sm:h-45"
                         variants={{
@@ -52,6 +56,11 @@ function Me() {
                         {/* hover image — fades in on hover */}
                         <img className="absolute inset-0 w-full h-full rounded-full object-cover opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100" src="/codeheist.jpeg" alt="Raj Kumar" />
                     </motion.div>
+                    {/* status — sits on the photo's bottom-right corner like GitHub. On phones the photo is
+                        centred, so it's anchored right and opens leftwards (emoji stays put) to stay on screen;
+                        on larger screens it opens rightwards into the space beside the photo */}
+                    <StatusBadge className="bottom-2 -right-3 flex-row-reverse sm:right-auto sm:left-[80%] sm:flex-row" />
+                    </div>
 
                     {/* About */}
                     <div className="flex flex-col gap-2 items-center sm:items-start">
@@ -114,7 +123,7 @@ function Me() {
                                 {Array.from({ length: 6 }).map((_, i) => (
                                     <span key={i} className="flex items-center">
                                         <span className="font-spec font-bold theme-text-primary text-3xl sm:text-4xl lg:text-5xl tracking-wider whitespace-nowrap px-6 sm:px-10">
-                                            System Programming in Rust 🦀
+                                            Learning Go and Kubernetes ☸️
                                         </span>
                                         <span className="text-[#51a2ff] text-2xl sm:text-3xl">✦</span>
                                     </span>
@@ -223,6 +232,7 @@ function Me() {
                             { icon: <BsJavascript />, name: "JavaScript" },
                             { icon: <BsTypescript />, name: "TypeScipt" },
                             { icon: <DiPython />, name: "Python" },
+                            { icon: <FaGolang />, name: "Golang" },
                             { icon: <SiMongodb />, name: "MongoDB" },
                             { icon: <BiLogoPostgresql />, name: "PostgreSQL" },
                             { icon: <SiPrisma />, name: "Prisma" },
