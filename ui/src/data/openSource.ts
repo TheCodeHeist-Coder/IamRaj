@@ -50,6 +50,16 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Oct 8, 2026",
   },
+  {
+    title: "Keep the live vehicle as a trip's vehicle",
+    description:
+      "Fixed a bug where a bus that dropped out of the real-time feed kept appearing on its trip for up to 15 minutes after another bus took over. Reworked the fix after maintainer review to address the root cause, verified across three timestamp scenarios.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/1587",
+    status: "Merged",
+    mergedOn: "Oct 14, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
