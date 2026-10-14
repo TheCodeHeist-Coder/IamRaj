@@ -1,5 +1,7 @@
-import { useState, useRef } from "react";
-import { motion, useMotionValue, useTransform, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { GoGitCommit, GoRepoForked, GoStar } from "react-icons/go";
+import { useRepoStats } from "../hooks/useRepoStats";
 
 const projects = [
   {
@@ -34,48 +36,21 @@ const projects = [
   },
 ];
 
-// ── Tilt Card with flip-image-on-hover ──────────────────────────────────────
+// ── Card with flip-image-on-click ──────────────────────────────────────
 function ProjectCard({ project }: {project: any}) {
-  const ref = useRef<HTMLDivElement | null>(null);
   const [hovered, setHovered] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
-
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-0.5, 0.5], [8, -8]);
-  const rotateY = useTransform(x, [-0.5, 0.5], [-8, 8]);
-
-  function handleMouseMove(e:any) {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const nx = (e.clientX - rect.left) / rect.width - 0.5;
-    const ny = (e.clientY - rect.top) / rect.height - 0.5;
-    x.set(nx);
-    y.set(ny);
-  }
-
-  function handleMouseLeave() {
-    x.set(0);
-    y.set(0);
-    setHovered(false);
-  }
+  const stats = useRepoStats(project.github);
 
   return (
     <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-        perspective: 1000,
-      }}
+      onMouseLeave={() => setHovered(false)}
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative w-full rounded-2xl overflow-hidden cursor-pointer"
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className="relative w-full rounded-2xl cursor-pointer"
       onClick={() => setImageIndex((i) => (i + 1) % project.images.length)}
     >
       {/* Card border glow */}
@@ -99,6 +74,11 @@ function ProjectCard({ project }: {project: any}) {
       <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         {/* ── Image section ──────────────────────────────────────── */}
         <div className="relative h-52 overflow-hidden">
+          <motion.div
+            className="w-full h-full"
+            animate={{ scale: hovered ? 1.05 : 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
           <AnimatePresence mode="wait">
             <motion.img
               key={imageIndex}
@@ -111,6 +91,7 @@ function ProjectCard({ project }: {project: any}) {
               className="w-full h-full object-cover"
             />
           </AnimatePresence>
+          </motion.div>
 
           {/* Overlay gradient */}
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--bg-secondary), rgba(0,0,0,0.05), transparent)' }} />
@@ -171,7 +152,30 @@ function ProjectCard({ project }: {project: any}) {
           </div>
 
           {/* ── Links row ──────────────────────────────────────────── */}
-          <div className="flex justify-end gap-2 pt-1.5">
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-1.5">
+            {/* GitHub stats */}
+            <div className="flex items-center gap-2">
+              {[
+                { icon: <GoStar />, value: stats?.stars, label: "Stars", color: "#f5b942" },
+                { icon: <GoRepoForked />, value: stats?.forks, label: "Forks", color: "#51a2ff" },
+                { icon: <GoGitCommit />, value: stats?.commits, label: "Commits", color: "#3fb950" },
+              ].map((stat) => (
+                <span
+                  key={stat.label}
+                  title={stat.label}
+                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[0.78rem] font-mono font-semibold theme-text-primary"
+                  style={{
+                    background: `${stat.color}14`,
+                    border: `1px solid ${stat.color}40`,
+                  }}
+                >
+                  <span className="text-[0.95rem] flex" style={{ color: stat.color }}>{stat.icon}</span>
+                  {stat.value ?? "–"}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex gap-2 ml-auto">
             {/* GitHub */}
             <motion.a
               href={project.github}
@@ -230,6 +234,7 @@ function ProjectCard({ project }: {project: any}) {
               </svg>
               Live
             </motion.a>
+            </div>
           </div>
         </div>
       </div>
@@ -256,7 +261,6 @@ export default function ProjectGrid() {
                 delay: i * 0.12,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              style={{ perspective: "1200px" }}
             >
               <ProjectCard project={project} />
             </motion.div>
