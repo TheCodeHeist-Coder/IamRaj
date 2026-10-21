@@ -1,9 +1,13 @@
+import { useState } from "react"
 import { motion } from "framer-motion"
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import Reveal from "../components/Reveal"
 import { contributions, targets } from "../data/openSource"
 import type { Contribution } from "../data/openSource"
+
+// how many PRs are visible before "Show more"
+const INITIAL_COUNT = 4
 
 const STATUS_COLORS: Record<Contribution["status"], string> = {
   Merged: "#a371f7",
@@ -75,6 +79,12 @@ function ContributionCard({ contribution }: { contribution: Contribution }) {
 }
 
 function OpenSource() {
+  const [showAll, setShowAll] = useState(false)
+
+  // newest first — new PRs are appended to the bottom of the data file
+  const sorted = [...contributions].reverse()
+  const visible = showAll ? sorted : sorted.slice(0, INITIAL_COUNT)
+
   return (
     <div className="flex justify-center page-container min-h-screen">
 
@@ -93,11 +103,26 @@ function OpenSource() {
           {contributions.length === 0 ? (
             <p className="text-center font-main theme-text-secondary">First contributions coming soon.</p>
           ) : (
-            contributions.map((contribution, i) => (
-              <Reveal key={contribution.prLink} delay={i * 0.08}>
+            visible.map((contribution, i) => (
+              <Reveal key={contribution.prLink} delay={(i % INITIAL_COUNT) * 0.08}>
                 <ContributionCard contribution={contribution} />
               </Reveal>
             ))
+          )}
+
+          {sorted.length > INITIAL_COUNT && (
+            <div className="flex justify-center pt-4">
+              <motion.button
+                type="button"
+                onClick={() => setShowAll((v) => !v)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-5 py-2 rounded-full font-main font-semibold text-sm theme-text-primary cursor-pointer"
+                style={{ background: "var(--bg-secondary)", border: "1px solid var(--border-color)" }}
+              >
+                {showAll ? "Show less ↑" : `Show more (${sorted.length - INITIAL_COUNT}) ↓`}
+              </motion.button>
+            </div>
           )}
         </div>
 
