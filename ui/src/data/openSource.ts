@@ -60,6 +60,16 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Oct 14, 2026",
   },
+  {
+    title: "Keep stop-specific alerts off unrelated trips",
+    description:
+      "Fixed a bug in the transit API where stop-specific service alerts appeared on every trip in the agency. Scoped GTFS-Realtime alerts correctly so riders only see alerts for the stops they affect.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/1624",
+    status: "Merged",
+    mergedOn: "Oct 21, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
