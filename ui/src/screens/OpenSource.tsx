@@ -7,7 +7,7 @@ import { contributions, targets } from "../data/openSource"
 import type { Contribution } from "../data/openSource"
 
 // how many PRs are visible before "Show more"
-const INITIAL_COUNT = 4
+const INITIAL_COUNT = 3
 
 const STATUS_COLORS: Record<Contribution["status"], string> = {
   Merged: "#a371f7",
