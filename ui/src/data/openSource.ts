@@ -70,6 +70,16 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Oct 21, 2026",
   },
+  {
+    title: "Return routes when centered on a stop",
+    description:
+      "Fixed the routes-for-location API returning an empty list when searching at a stop's exact coordinates — floating-point rounding pushed acos just above 1, so SQLite returned NULL and the error was swallowed. Clamped the input to [-1, 1], added a regression test that queries every stop in the feed, and verified results against the production Java server.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/1652",
+    status: "Merged",
+    mergedOn: "Oct 22, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
