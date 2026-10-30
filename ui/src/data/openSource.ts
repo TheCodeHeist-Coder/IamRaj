@@ -80,6 +80,16 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Oct 22, 2026",
   },
+  {
+    title: "Show agency-wide alerts in stop situations",
+    description:
+      "Fixed the arrivals-and-departures API leaving out agency-wide alerts at a stop when no arrivals fell in the time window, matching the Java server's behavior. Found two causes that had to be fixed together, and added a regression test that fails on main and passes with the fix.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/1744",
+    status: "Merged",
+    mergedOn: "Oct 30, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
