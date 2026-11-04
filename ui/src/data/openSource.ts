@@ -90,6 +90,16 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Oct 30, 2026",
   },
+  {
+    title: "Release retained vehicles' trips across feeds",
+    description:
+      "Follow-up to #1587: a bus that dropped out of its feed now gives up its trip when a live bus in any feed serves it, not only one in the same feed. Before, the trip resolved to whichever feed's ID sorted later, so riders could see two buses on one trip. Added a regression test that fails on main and passes with the fix.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/1611",
+    status: "Merged",
+    mergedOn: "Nov 2, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
