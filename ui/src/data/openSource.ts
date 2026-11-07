@@ -100,6 +100,16 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Nov 2, 2026",
   },
+  {
+    title: "Guard feedRetainedVehicles against a nil map",
+    description:
+      "Follow-up to #1611 from maintainer review: added a nil-map guard so a Manager built without the retained-vehicles map no longer panics on real-time feed updates. This let five test setups drop the workaround they needed to avoid the crash.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/1939",
+    status: "Merged",
+    mergedOn: "Nov 5, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
