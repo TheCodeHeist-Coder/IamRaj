@@ -110,6 +110,16 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Nov 5, 2026",
   },
+  {
+    title: "Normalize millisecond vehicle timestamps",
+    description:
+      "Fixed vehicle positions from feeds that send timestamps in milliseconds being read as dates around the year 58838, which marked every such bus as stale and hid its live position and status. Converted them to seconds at ingest, matching the Java server, with a regression test that fails on main and passes with the fix.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/2082",
+    status: "Merged",
+    mergedOn: "Nov 13, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
