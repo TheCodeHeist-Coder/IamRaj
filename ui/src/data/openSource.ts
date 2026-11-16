@@ -125,5 +125,5 @@ export const contributions: Contribution[] = [
 // Orgs / projects you're aiming to contribute to next
 export const targets: Target[] = [
   { org: "OneBusAway", project: "maglev", repoLink: "https://github.com/OneBusAway/maglev" },
-  { org: "kubernetes", repoLink: "https://github.com/kubernetes" },
+  { org: "Mifos Initiative", project:"mifos-gazelle",  repoLink: "https://github.com/openMF/mifos-gazelle" },
 ]
