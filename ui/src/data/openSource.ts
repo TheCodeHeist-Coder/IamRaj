@@ -120,6 +120,16 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Nov 13, 2026",
   },
+  {
+    title: "Return [] for empty reference arrays",
+    description:
+      "Fixed the search/route and trips-for-route APIs returning null instead of an empty list for agency and trip references, which broke the OpenAPI schema clients rely on. Started both lists as empty slices, removed a now-redundant workaround, and verified the raw JSON against a running server.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/2108",
+    status: "Merged",
+    mergedOn: "Nov 17, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
