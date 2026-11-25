@@ -130,6 +130,16 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Nov 17, 2026",
   },
+  {
+    title: "Always send Access-Control-Allow-Origin",
+    description:
+      "Fixed a CORS caching bug where a CDN or proxy could store an API response fetched without an Origin header and serve it to browsers, which then failed the CORS check. The API now always sends Access-Control-Allow-Origin: *, with the preflight-only headers on OPTIONS, verified through the full middleware chain on a running server.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/2090",
+    status: "Merged",
+    mergedOn: "Nov 25, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
