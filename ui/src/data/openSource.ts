@@ -140,6 +140,26 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Nov 25, 2026",
   },
+  {
+    title: "Add route alerts to stop arrivals' situations",
+    description:
+      "Fixed the arrivals-and-departures-for-stop API losing alerts for routes that serve a stop but had no arrival in the time window, matching the Java server. Reused the location handler's helper, merged two duplicated error-handling paths, and added a regression test that fails on main and passes with the fix.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/1927",
+    status: "Merged",
+    mergedOn: "Nov 25, 2026",
+  },
+  {
+    title: "Skip GTFS-Flex stop times that serve no stop",
+    description:
+      "Fixed a panic that stopped the server at startup when a transit feed included GTFS-Flex stop times, after a library upgrade began keeping rows with no stop. The import now skips those rows with a single warning and drops trips left with fewer than two stops, backed by new feed tests that panic on main.",
+    org: "OneBusAway",
+    project: "maglev",
+    prLink: "https://github.com/OneBusAway/maglev/pull/2216",
+    status: "Merged",
+    mergedOn: "Nov 25, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
