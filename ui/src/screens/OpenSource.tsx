@@ -78,12 +78,31 @@ function ContributionCard({ contribution }: { contribution: Contribution }) {
   )
 }
 
+const projectKey = (c: Contribution) => `${c.org}/${c.project}`
+
+// one tab per project, most PRs first — a new project gets a tab automatically
+const PROJECTS = Object.entries(
+  contributions.reduce<Record<string, number>>((acc, c) => {
+    acc[projectKey(c)] = (acc[projectKey(c)] ?? 0) + 1
+    return acc
+  }, {}),
+)
+  .map(([key, count]) => ({ key, name: key.split("/")[1], count }))
+  .sort((a, b) => b.count - a.count)
+
 function OpenSource() {
   const [showAll, setShowAll] = useState(false)
+  const [project, setProject] = useState<string | null>(null) // null = all projects
 
   // newest first — new PRs are appended to the bottom of the data file
-  const sorted = [...contributions].reverse()
+  const sorted = [...contributions].reverse().filter((c) => project === null || projectKey(c) === project)
   const visible = showAll ? sorted : sorted.slice(0, INITIAL_COUNT)
+
+  const tabs = [{ key: null, name: "All", count: contributions.length }, ...PROJECTS]
+  const selectProject = (key: string | null) => {
+    setProject(key)
+    setShowAll(false)
+  }
 
   return (
     <div className="flex justify-center page-container min-h-screen">
@@ -98,13 +117,39 @@ function OpenSource() {
           <p className="max-w-160 text-center font-main text-base sm:text-lg theme-text-secondary font-medium tracking-wide"> Contributions I've made to projects I use and love. </p>
         </div>
 
+        {/* Project tabs — only when there's more than one project */}
+        {PROJECTS.length > 1 && (
+          <div role="toolbar" aria-label="Filter by project" className="px-2 sm:px-8 flex flex-wrap justify-center gap-2">
+            {tabs.map((tab) => {
+              const active = project === tab.key
+              return (
+                <button
+                  key={tab.key ?? "all"}
+                  type="button"
+                  aria-pressed={active}
+                  aria-label={`${tab.name}, ${tab.count} PRs`}
+                  onClick={() => selectProject(tab.key)}
+                  className={`flex items-center gap-2 px-4 py-1.5 rounded-full font-main text-sm font-medium transition-colors cursor-pointer ${active ? "theme-text-primary" : "theme-text-secondary hover:!text-[var(--text-primary)]"}`}
+                  style={{
+                    backgroundColor: active ? "var(--bg-tertiary)" : "transparent",
+                    border: `1px solid ${active ? "var(--border-hover)" : "var(--border-color)"}`,
+                  }}
+                >
+                  {tab.name}
+                  <span className="font-mono text-[0.72rem] opacity-70">{tab.count}</span>
+                </button>
+              )
+            })}
+          </div>
+        )}
+
         {/* Contributions */}
         <div className="py-8 px-2 sm:px-8 flex flex-col gap-4">
           {contributions.length === 0 ? (
             <p className="text-center font-main theme-text-secondary">First contributions coming soon.</p>
           ) : (
             visible.map((contribution, i) => (
-              <Reveal key={contribution.prLink} delay={(i % INITIAL_COUNT) * 0.08}>
+              <Reveal key={`${project}-${contribution.prLink}`} delay={(i % INITIAL_COUNT) * 0.08}>
                 <ContributionCard contribution={contribution} />
               </Reveal>
             ))

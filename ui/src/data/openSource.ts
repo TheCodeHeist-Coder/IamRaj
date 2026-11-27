@@ -160,10 +160,31 @@ export const contributions: Contribution[] = [
     status: "Merged",
     mergedOn: "Nov 25, 2026",
   },
+  {
+    title: "Cover error reporting and scope configuration",
+    description:
+      "Added tests for Watchdog's error-reporting package, which every collection step reports through, raising its coverage from 5.9% to 92.2%. Checked that the tests catch real regressions by breaking the reporter three ways locally — each one made a test fail.",
+    org: "OneBusAway",
+    project: "watchdog",
+    prLink: "https://github.com/OneBusAway/watchdog/pull/432",
+    status: "Merged",
+    mergedOn: "Nov 26, 2026",
+  },
+  {
+    title: "Report OBA metrics API failures to Sentry once",
+    description:
+      "Fixed every metrics API failure being reported to Sentry twice per tick, so a server without the metrics endpoint sent at least two events every 30 seconds. Also sanitized one error path that could leak the API key, and verified one event per tick against a live OneBusAway server.",
+    org: "OneBusAway",
+    project: "watchdog",
+    prLink: "https://github.com/OneBusAway/watchdog/pull/431",
+    status: "Merged",
+    mergedOn: "Nov 26, 2026",
+  },
 ]
 
 // Orgs / projects you're aiming to contribute to next
 export const targets: Target[] = [
   { org: "OneBusAway", project: "maglev", repoLink: "https://github.com/OneBusAway/maglev" },
+  { org: "OneBusAway", project: "watchdog", repoLink: "https://github.com/OneBusAway/watchdog" },
   { org: "openMF", project:"mifos-gazelle",  repoLink: "https://github.com/openMF/mifos-gazelle" },
 ]
